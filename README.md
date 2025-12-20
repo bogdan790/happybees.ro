@@ -1,0 +1,60 @@
+# Happy Bees - Stupina Bogdănel
+
+Site de prezentare pentru stupina Happy Bees - miere naturală și produse apicole.
+
+## Stack Tehnologic
+
+- **Hugo** (Static Site Generator) - v0.122.0
+- **Decap CMS** (Content Management) - Git-based, self-hosted
+- **Cloudflare Pages** (Hosting) - Deploy automat, SSL gratuit
+
+## Status Proiect
+
+**BMAD Method - Phases:**
+
+- ✅ Phase 1: Analysis - Brainstorming și cercetare (COMPLETĂ)
+- ✅ Phase 2: Architecture - Decizie stack tehnologic (COMPLETĂ)
+- ✅ Phase 3: Planning - PRD cu design system (COMPLETĂ)
+- 🚧 Phase 4: Implementation - În curs
+
+## Documentație
+
+Toată documentația proiectului se află în folder-ul `/docs/`:
+
+- `00-brand-identity.md` - Identitate vizuală Happy Bees (logo, culori)
+- `01-analysis.md` - Phase 1: Analysis (cerințe, cercetare)
+- `02-architecture.md` - Phase 2: Architecture (comparație Hugo vs Astro vs Eleventy)
+- `03-prd.md` - Phase 3: Planning - Product Requirements Document
+- `03-prd-approval.md` - Aprobare PRD și răspunsuri review
+
+## Structură Site
+
+```
+happybees.ro/
+├── / (Homepage)
+├── /despre/
+├── /produse/
+├── /articole/
+└── /contact/
+```
+
+## Dezvoltare Locală (TODO - Phase 4)
+
+```bash
+# Install Hugo
+sudo snap install hugo
+
+# Run development server
+hugo server
+
+# Build site
+hugo --minify
+```
+
+## Deploy
+
+Site-ul se deploy-ează automat pe Cloudflare Pages la fiecare commit pe branch `main`.
+
+---
+
+**© 2025 Happy Bees - Stupina Bogdănel**

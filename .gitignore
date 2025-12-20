@@ -1,0 +1,27 @@
+# Hugo
+/public/
+/resources/_gen/
+/.hugo_build.lock
+
+# Node.js
+node_modules/
+package-lock.json
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary
+*.tmp
+*.log
+
+# Environment
+.env
+.env.local
