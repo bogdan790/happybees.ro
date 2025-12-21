@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="container" style="padding: 2rem 0;">
+  <h1>{{ .Title }}</h1>
+  <p>Tip: {{ .Type }} | Kind: {{ .Kind }}</p>
+
+  <ul>
+  {{ range .Pages }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <p>{{ .Summary }}</p>
+    </li>
+  {{ end }}
+  </ul>
+</div>
+{{ end }}

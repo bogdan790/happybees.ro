@@ -1,0 +1,26 @@
+<header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      {{/* Logo */}}
+      <div class="logo">
+        <a href="{{ .Site.BaseURL }}">
+          <span class="logo-name">Happy Bees</span>
+          <span class="logo-subtitle">STUPINA BOGDĂNEL</span>
+        </a>
+      </div>
+
+      {{/* Navigation */}}
+      <nav class="main-nav">
+        <ul>
+          {{ range .Site.Menus.main }}
+            <li>
+              <a href="{{ .URL }}" {{ if $.IsMenuCurrent "main" . }}class="active"{{ end }}>
+                {{ .Name }}
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

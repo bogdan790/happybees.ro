@@ -1,0 +1,59 @@
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+{{/* Hero Section cu imagine */}}
+{{ if .Params.imagine_hero }}
+<section style="background-image: url('{{ .Params.imagine_hero }}'); background-size: cover; background-position: center; min-height: 400px; display: flex; align-items: flex-end; position: relative;">
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);"></div>
+  <div class="container" style="position: relative; padding: var(--space-xl) var(--container-padding);">
+    <h1 style="color: white; margin-bottom: var(--space-sm);">{{ .Title }}</h1>
+    <p style="color: rgba(255,255,255,0.9); font-size: 0.875rem;">
+      {{ .Date.Format "2 January 2006" }} | {{ .Params.categorie }}
+    </p>
+  </div>
+</section>
+{{ end }}
+
+{{/* Conținut articol */}}
+<article style="padding: var(--space-2xl) 0;">
+  <div class="container" style="max-width: 800px;">
+
+    {{ if not .Params.imagine_hero }}
+    <h1>{{ .Title }}</h1>
+    <p style="color: var(--color-gray-medium); margin-bottom: var(--space-xl);">
+      {{ .Date.Format "2 January 2006" }} | {{ .Params.categorie }}
+    </p>
+    {{ end }}
+
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    {{/* CTA Box */}}
+    <div style="background-color: var(--color-cream); padding: var(--space-xl); border-radius: 12px; text-align: center; margin: var(--space-2xl) 0;">
+      <p style="font-size: 1.125rem; margin-bottom: var(--space-md);">Vrei să afli mai multe despre produsele noastre?</p>
+      <a href="/produse/" class="btn-primary">Vezi produsele</a>
+    </div>
+
+    {{/* Navigare articole */}}
+    <nav style="display: flex; justify-content: space-between; padding-top: var(--space-xl); border-top: 1px solid var(--color-cream-dark);">
+      {{ with .PrevInSection }}
+      <a href="{{ .RelPermalink }}" style="color: var(--color-honey-gold);">← {{ .Title }}</a>
+      {{ else }}
+      <span></span>
+      {{ end }}
+
+      <a href="/articole/" style="color: var(--color-gray-medium);">Înapoi la articole</a>
+
+      {{ with .NextInSection }}
+      <a href="{{ .RelPermalink }}" style="color: var(--color-honey-gold);">{{ .Title }} →</a>
+      {{ else }}
+      <span></span>
+      {{ end }}
+    </nav>
+
+  </div>
+</article>
+
+{{ end }}

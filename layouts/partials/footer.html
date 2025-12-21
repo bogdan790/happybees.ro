@@ -1,0 +1,25 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      {{/* Logo */}}
+      <div class="footer-logo">
+        <span class="logo-name">Happy Bees</span>
+        <span class="logo-subtitle">STUPINA BOGDĂNEL</span>
+      </div>
+
+      {{/* Footer Nav */}}
+      <nav class="footer-nav">
+        <ul>
+          {{ range .Site.Menus.main }}
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      </nav>
+
+      {{/* Copyright */}}
+      <div class="copyright">
+        <p>&copy; {{ now.Year }} Happy Bees - Stupina Bogdănel. Toate drepturile rezervate.</p>
+      </div>
+    </div>
+  </div>
+</footer>

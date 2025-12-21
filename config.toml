@@ -5,6 +5,7 @@ title = "Happy Bees - Stupina Bogdănel"
 # Custom theme (NU folosim theme extern)
 # Multilingv (Phase future - EN)
 defaultContentLanguage = "ro"
+defaultContentLanguageInSubdir = false  # NU adaugă /ro/ la URL-uri
 
 [languages]
   [languages.ro]

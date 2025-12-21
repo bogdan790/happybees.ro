@@ -1,0 +1,100 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+{{/* Hero Section */}}
+{{ with .Params.hero }}
+<section class="hero" style="background-image: url('{{ .imagine }}'); background-size: cover; background-position: center; min-height: 500px; display: flex; align-items: center; position: relative;">
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 248, 231, 0.4);"></div>
+  <div class="container" style="position: relative; text-align: center;">
+    <h1 style="color: var(--color-honey-gold); margin-bottom: var(--space-md);">{{ .titlu }}</h1>
+    <h2 style="color: var(--color-gray-dark); margin-bottom: var(--space-xl);">{{ .subtitlu }}</h2>
+    <a href="{{ .cta_link }}" class="btn-primary">{{ .cta_text }}</a>
+  </div>
+</section>
+{{ end }}
+
+{{/* Despre Preview */}}
+{{ with .Params.despre_preview }}
+<section style="padding: var(--space-2xl) 0;">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: center;">
+      {{ if .imagine }}
+      <div>
+        <img src="{{ .imagine }}" alt="Despre Happy Bees" style="width: 100%; border-radius: 12px;">
+      </div>
+      {{ end }}
+      <div>
+        <h2>{{ .titlu }}</h2>
+        {{ .text | markdownify }}
+        <a href="/despre/" style="color: var(--color-honey-gold); font-weight: 600;">Citește povestea completă →</a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{/* Produse Featured */}}
+{{ with .Params.produse_featured }}
+<section style="padding: var(--space-2xl) 0; background-color: var(--color-cream);">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: var(--space-xl);">{{ .titlu }}</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-xl);">
+      {{ range first 4 (where $.Site.RegularPages "Section" "produse") }}
+        <div class="card">
+          {{ if .Params.imagine }}
+          <img src="{{ .Params.imagine }}" alt="{{ .Title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: var(--space-md);">
+          {{ end }}
+          <h3>{{ .Title }}</h3>
+          <p style="color: var(--color-honey-gold); font-weight: 700; font-size: 1.25rem;">{{ .Params.pret }} RON/{{ .Params.unitate }}</p>
+          <p>{{ .Params.descriere_scurta }}</p>
+          <a href="{{ .RelPermalink }}" class="btn-primary" style="display: inline-block; margin-top: var(--space-sm);">Detalii</a>
+        </div>
+      {{ end }}
+    </div>
+    <div style="text-align: center;">
+      <a href="/produse/" class="btn-primary">{{ .cta_text }}</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{/* Articole Recente */}}
+{{ with .Params.articole_recente }}
+<section style="padding: var(--space-2xl) 0;">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: var(--space-xl);">{{ .titlu }}</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-xl);">
+      {{ range first 3 (where $.Site.RegularPages "Section" "articole") }}
+        <div class="card">
+          {{ if .Params.imagine_card }}
+          <img src="{{ .Params.imagine_card }}" alt="{{ .Title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: var(--space-md);">
+          {{ end }}
+          <h3>{{ .Title }}</h3>
+          <p style="font-size: 0.875rem; color: var(--color-gray-medium);">{{ .Date.Format "2 January 2006" }} | {{ .Params.categorie }}</p>
+          <p>{{ .Params.rezumat }}</p>
+          <a href="{{ .RelPermalink }}" style="color: var(--color-honey-gold); font-weight: 600;">Citește →</a>
+        </div>
+      {{ end }}
+    </div>
+    <div style="text-align: center;">
+      <a href="/articole/" class="btn-primary">{{ .cta_text }}</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{/* CTA Final */}}
+{{ with .Params.cta_final }}
+<section style="padding: var(--space-2xl) 0; background-color: var(--color-cream); text-align: center;">
+  <div class="container">
+    <h2>{{ .titlu }}</h2>
+    <p style="margin-bottom: var(--space-xl);">{{ .text }}</p>
+    <div style="display: flex; gap: var(--space-md); justify-content: center;">
+      <a href="/contact/" class="btn-primary">{{ .btn_contact }}</a>
+      <a href="/contact/" class="btn-primary">{{ .btn_comanda }}</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ end }}

@@ -1,0 +1,126 @@
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+{{/* Hero pentru Despre */}}
+{{ if .Params.imagine_hero }}
+<section style="background-image: url('{{ .Params.imagine_hero }}'); background-size: cover; background-position: center; min-height: 300px; display: flex; align-items: center; position: relative;">
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5));"></div>
+  <div class="container" style="position: relative;">
+    <h1 style="color: white;">{{ .Title }}</h1>
+  </div>
+</section>
+{{ end }}
+
+<article style="padding: var(--space-2xl) 0;">
+  <div class="container" style="max-width: 900px;">
+
+    {{ if not .Params.imagine_hero }}
+    <h1>{{ .Title }}</h1>
+    {{ end }}
+
+    {{/* Pentru pagina Despre */}}
+    {{ if .Params.poveste }}
+    <section style="margin: var(--space-2xl) 0;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: start;">
+        <div>
+          <h2>{{ .Params.poveste.titlu }}</h2>
+          {{ .Params.poveste.text | markdownify }}
+        </div>
+        {{ if .Params.poveste.imagine_portret }}
+        <div>
+          <img src="{{ .Params.poveste.imagine_portret }}" alt="Bogdan" style="width: 100%; border-radius: 12px;">
+        </div>
+        {{ end }}
+      </div>
+    </section>
+
+    {{ if .Params.valori }}
+    <section style="margin: var(--space-2xl) 0;">
+      <h2 style="text-align: center; margin-bottom: var(--space-xl);">Valorile noastre</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg);">
+        {{ range .Params.valori }}
+        <div class="card" style="text-align: center;">
+          <h3>{{ .titlu }}</h3>
+          <p>{{ .text }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+
+    {{ if .Params.galerie }}
+    <section style="margin: var(--space-2xl) 0;">
+      <h2 style="text-align: center; margin-bottom: var(--space-xl);">Stupina noastră</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md);">
+        {{ range .Params.galerie }}
+        <img src="{{ .imagine }}" alt="Stupina Happy Bees" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px;">
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+
+    <div style="background-color: var(--color-cream); padding: var(--space-xl); border-radius: 12px; text-align: center; margin-top: var(--space-2xl);">
+      <p style="font-size: 1.125rem; margin-bottom: var(--space-md);">Vrei să încerci mierea noastră?</p>
+      <div style="display: flex; gap: var(--space-md); justify-content: center;">
+        <a href="/produse/" class="btn-primary">Vezi produsele</a>
+        <a href="/contact/" class="btn-primary">Contactează-ne</a>
+      </div>
+    </div>
+    {{ end }}
+
+    {{/* Pentru pagina Contact */}}
+    {{ if .Params.intro }}
+    <p style="font-size: 1.125rem; margin-bottom: var(--space-xl);">{{ .Params.intro }}</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl);">
+      {{/* Formulare - placeholder */}}
+      <div>
+        <h2>Trimite-ne un mesaj</h2>
+        <p style="color: var(--color-gray-medium); margin-bottom: var(--space-lg);">
+          Formulare contact vor fi adăugate în Phase 4.4 (cu Cloudflare Pages Functions).
+        </p>
+        <div class="card">
+          <p>Formular contact (placeholder)</p>
+        </div>
+      </div>
+
+      {{/* Info contact */}}
+      {{ if .Params.info }}
+      <div>
+        <h2>Informații contact</h2>
+        <div class="card">
+          {{ if .Params.info.email }}
+          <p><strong>Email:</strong><br>
+          <a href="mailto:{{ .Params.info.email }}">{{ .Params.info.email }}</a></p>
+          {{ end }}
+
+          {{ if .Params.info.telefon }}
+          <p><strong>Telefon:</strong><br>
+          <a href="tel:{{ .Params.info.telefon }}">{{ .Params.info.telefon }}</a></p>
+          {{ end }}
+
+          {{ if .Params.info.locatie }}
+          <p><strong>Locație:</strong><br>{{ .Params.info.locatie }}</p>
+          {{ end }}
+
+          {{ if .Params.info.program }}
+          <p><strong>Program:</strong><br>{{ .Params.info.program | markdownify }}</p>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{/* Default content pentru alte pagini */}}
+    {{ if not (or .Params.poveste .Params.intro) }}
+    <div class="content">
+      {{ .Content }}
+    </div>
+    {{ end }}
+
+  </div>
+</article>
+
+{{ end }}

@@ -1,0 +1,38 @@
+{{ define "title" }}Produse | {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section style="padding: var(--space-2xl) 0;">
+  <div class="container">
+    <h1>Produse apicole</h1>
+    <p style="font-size: 1.125rem; margin-bottom: var(--space-xl);">Miere naturală, polen, propolis, ceară</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-lg);">
+      {{ range .Pages }}
+        <div class="card">
+          {{ if .Params.imagine }}
+          <img src="{{ .Params.imagine }}" alt="{{ .Title }}" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: var(--space-md);">
+          {{ end }}
+
+          <h3>{{ .Title }}</h3>
+
+          <p style="color: var(--color-honey-gold); font-weight: 700; font-size: 1.5rem; margin: var(--space-sm) 0;">
+            {{ .Params.pret }} RON/{{ .Params.unitate }}
+          </p>
+
+          {{ if .Params.disponibilitate }}
+          <p style="font-size: 0.875rem;
+             {{ if eq .Params.disponibilitate "Disponibil" }}color: #10b981;{{ else if eq .Params.disponibilitate "Indisponibil" }}color: #ef4444;{{ else }}color: #f59e0b;{{ end }}">
+            {{ if eq .Params.disponibilitate "Disponibil" }}✓{{ else if eq .Params.disponibilitate "Indisponibil" }}✗{{ else }}⚠{{ end }}
+            {{ .Params.disponibilitate }}
+          </p>
+          {{ end }}
+
+          <p>{{ .Params.descriere_scurta }}</p>
+
+          <a href="{{ .RelPermalink }}" class="btn-primary" style="display: inline-block; margin-top: var(--space-md);">Detalii</a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

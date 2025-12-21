@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+  <meta name="description" content="{{ .Site.Params.description }}">
+
+  {{/* Google Fonts - Caveat + Inter */}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  {{/* Main CSS */}}
+  {{ $css := resources.Get "css/main.css" }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+</head>
+<body>
+  {{/* Header */}}
+  {{ partial "header.html" . }}
+
+  {{/* Main Content */}}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{/* Footer */}}
+  {{ partial "footer.html" . }}
+</body>
+</html>

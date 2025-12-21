@@ -1,0 +1,292 @@
+/* ========================================
+   HAPPY BEES - DESIGN SYSTEM
+   ======================================== */
+
+/* CSS Variables - Design System */
+:root {
+  /* Culori Principale */
+  --color-honey-gold: #E6B84E;
+  --color-honey-dark: #D4A574;
+  --color-black: #1a1a1a;
+
+  /* Derivate Background & UI */
+  --color-cream: #FFF8E7;
+  --color-cream-light: #FFFBF0;
+  --color-cream-dark: #F5E6D3;
+
+  /* Neutrale & Text */
+  --color-white: #FFFFFF;
+  --color-gray-dark: #2d2d2d;
+  --color-gray-medium: #4a4a4a;
+  --color-gray-light: #e0e0e0;
+
+  /* Accente & Interacțiuni */
+  --color-honey-hover: #FFCC5C;
+  --color-honey-light: #FFF4DC;
+
+  /* Tipografie */
+  --font-heading: 'Caveat', 'Indie Flower', cursive;
+  --font-body: 'Inter', 'Open Sans', sans-serif;
+
+  /* Spacing (8px grid) */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 1rem;     /* 16px */
+  --space-md: 1.5rem;   /* 24px */
+  --space-lg: 2rem;     /* 32px */
+  --space-xl: 3rem;     /* 48px */
+  --space-2xl: 4rem;    /* 64px */
+
+  /* Container */
+  --container-max: 1200px;
+  --container-padding: 1.5rem;
+}
+
+/* ========================================
+   RESET & BASE
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-gray-medium);
+  background-color: var(--color-white);
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-gray-dark);
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+}
+
+h1 { font-size: 3.5rem; }    /* 56px */
+h2 { font-size: 2.5rem; }    /* 40px */
+h3 { font-size: 1.75rem; }   /* 28px */
+h4 { font-size: 1.25rem; }   /* 20px */
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+a {
+  color: var(--color-honey-gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-honey-hover);
+}
+
+/* ========================================
+   LAYOUT
+   ======================================== */
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+main {
+  min-height: 60vh;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.site-header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-cream-dark);
+  padding: var(--space-md) 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  display: flex;
+  flex-direction: column;
+  color: var(--color-black);
+}
+
+.logo-name {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-honey-gold);
+}
+
+.logo-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-gray-dark);
+}
+
+.main-nav ul {
+  display: flex;
+  gap: var(--space-lg);
+  list-style: none;
+}
+
+.main-nav a {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-gray-dark);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--color-honey-gold);
+  background-color: var(--color-honey-light);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.site-footer {
+  background-color: var(--color-cream);
+  border-top: 1px solid var(--color-cream-dark);
+  padding: var(--space-xl) 0 var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-logo {
+  margin-bottom: var(--space-md);
+}
+
+.footer-logo .logo-name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-honey-gold);
+  display: block;
+}
+
+.footer-logo .logo-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-gray-dark);
+}
+
+.footer-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  list-style: none;
+  margin-bottom: var(--space-md);
+}
+
+.footer-nav a {
+  color: var(--color-gray-dark);
+  font-size: 0.9rem;
+}
+
+.copyright {
+  font-size: 0.875rem;
+  color: var(--color-gray-medium);
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.btn-primary {
+  display: inline-block;
+  background: var(--color-honey-gold);
+  color: var(--color-white);
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: var(--color-honey-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(230, 184, 78, 0.3);
+  color: var(--color-white);
+}
+
+/* ========================================
+   CARDS
+   ======================================== */
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-cream-dark);
+  border-radius: 12px;
+  padding: var(--space-lg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+
+  .header-content {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: center;
+  }
+
+  .footer-nav ul {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+}
