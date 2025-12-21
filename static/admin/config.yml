@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: bogdan790/happybees.ro
+  repo: bogdan790/happybees-ro
   branch: main
   base_url: https://happybees-ro.pages.dev
   auth_endpoint: /api/auth
