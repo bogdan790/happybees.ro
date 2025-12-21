@@ -44,10 +44,11 @@ export async function onRequestGet(context) {
 <body>
   <script>
     (function() {
+      const tokenData = ${JSON.stringify(tokenData)};
       function receiveMessage(e) {
         console.log("receiveMessage %o", e);
         window.opener.postMessage(
-          'authorization:github:success:${JSON.stringify(tokenData)}',
+          "authorization:github:success:" + JSON.stringify(tokenData),
           e.origin
         );
         window.removeEventListener("message", receiveMessage, false);
