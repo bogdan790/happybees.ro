@@ -1,0 +1,77 @@
+baseURL = "https://happybees.ro"
+languageCode = "ro"
+title = "Happy Bees - Stupina Bogdănel"
+
+# Custom theme (NU folosim theme extern)
+# Multilingv (Phase future - EN)
+defaultContentLanguage = "ro"
+
+[languages]
+  [languages.ro]
+    languageName = "Română"
+    weight = 1
+    title = "Happy Bees - Stupina Bogdănel"
+    [languages.ro.params]
+      description = "Miere naturală din stupina familiei Bogdănel"
+
+  # [languages.en]  # Uncomment când adaugi EN
+  #   languageName = "English"
+  #   weight = 2
+  #   title = "Happy Bees - Bogdănel Apiary"
+
+# Params globale
+[params]
+  description = "Miere naturală, polen, propolis - produse apicole din stupina Happy Bees"
+  author = "Happy Bees"
+  email = "contact@happybees.ro"
+  telefon = "+40 7XX XXX XXX"
+
+  # Open Graph / Social
+  og_image = "/images/og-happybees.jpg"
+
+  # Google Analytics (opțional)
+  # google_analytics = "G-XXXXXXXXXX"
+
+# Menu principal (sau definit în data/menu.yml)
+[[menu.main]]
+  name = "Acasă"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Produse"
+  url = "/produse/"
+  weight = 2
+
+[[menu.main]]
+  name = "Articole"
+  url = "/articole/"
+  weight = 3
+
+[[menu.main]]
+  name = "Despre"
+  url = "/despre/"
+  weight = 4
+
+[[menu.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 5
+
+# Image Processing
+[imaging]
+  quality = 85
+  resampleFilter = "Lanczos"
+
+  [imaging.exif]
+    disableDate = false
+    disableLatLong = true  # Privacy: remove GPS data
+
+# Outputs
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML"]
+
+# Minify HTML/CSS/JS la build
+[minify]
+  minifyOutput = true

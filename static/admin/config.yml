@@ -1,0 +1,224 @@
+backend:
+  name: test-repo
+
+# Media Library - Git-based (toate imaginile în repo)
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+# NOTĂ: Pentru deploy pe Cloudflare, schimbă backend la:
+# backend:
+#   name: git-gateway
+#   branch: main
+
+# Collections
+collections:
+  # ========================================
+  # PRODUSE (RO)
+  # ========================================
+  - name: "produse_ro"
+    label: "Produse (RO)"
+    folder: "content/ro/produse"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nume Produs", name: "title", widget: "string", required: true}
+      - {label: "Dată Publicare", name: "date", widget: "datetime", required: true}
+      - {label: "Preț (RON)", name: "pret", widget: "number", value_type: "float", required: true}
+      - {label: "Unitate", name: "unitate", widget: "string", default: "kg", hint: "ex: kg, 100g, 50ml", required: true}
+      - label: "Disponibilitate"
+        name: "disponibilitate"
+        widget: "select"
+        options: ["Disponibil", "Indisponibil", "Stoc limitat"]
+        default: "Disponibil"
+        required: true
+
+      # IMAGINE PRINCIPALĂ (MANDATORY - EDITABILĂ)
+      - label: "Imagine Produs"
+        name: "imagine"
+        widget: "image"
+        required: true
+        hint: "Poză principală produs (min 800x600px, JPEG/PNG) - EDITABILĂ din CMS"
+
+      # GALERIE IMAGINI (OPTIONAL - EDITABILĂ)
+      - label: "Galerie Imagini"
+        name: "galerie"
+        widget: "list"
+        required: false
+        hint: "Poze suplimentare produs (opțional, 2-6 imagini) - EDITABILE din CMS"
+        field: {label: "Imagine", name: "imagine", widget: "image"}
+
+      - {label: "Descriere Scurtă", name: "descriere_scurta", widget: "text", required: true, hint: "Max 150 caractere pentru card"}
+      - {label: "Descriere Completă", name: "body", widget: "markdown", required: true}
+
+      - label: "Caracteristici"
+        name: "caracteristici"
+        widget: "list"
+        required: false
+        hint: "Lista cu bullet points (ex: Culoare, Gust, Origine)"
+        fields:
+          - {label: "Caracteristică", name: "item", widget: "string"}
+
+  # ========================================
+  # ARTICOLE (RO)
+  # ========================================
+  - name: "articole_ro"
+    label: "Articole (RO)"
+    folder: "content/ro/articole"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Titlu Articol", name: "title", widget: "string", required: true}
+      - {label: "Dată Publicare", name: "date", widget: "datetime", required: true}
+      - label: "Categorie / Sezon"
+        name: "categorie"
+        widget: "select"
+        options: ["Primăvară", "Vară", "Toamnă", "Iarnă", "General"]
+        default: "General"
+        required: true
+
+      # IMAGINE HERO ARTICOL (MANDATORY - EDITABILĂ)
+      - label: "Imagine Hero"
+        name: "imagine_hero"
+        widget: "image"
+        required: true
+        hint: "Imagine mare top articol (min 1920x1080px, 16:9) - EDITABILĂ din CMS"
+
+      # IMAGINE CARD (pentru listă articole) (MANDATORY - EDITABILĂ)
+      - label: "Imagine Card"
+        name: "imagine_card"
+        widget: "image"
+        required: true
+        hint: "Poză mică pentru card articol în listă (min 600x400px, 3:2) - EDITABILĂ din CMS"
+
+      - {label: "Rezumat Scurt", name: "rezumat", widget: "text", required: true, hint: "Max 200 caractere pentru card"}
+      - {label: "Conținut Articol", name: "body", widget: "markdown", required: true, hint: "Poți insera imagini inline în editor - EDITABILE"}
+
+  # ========================================
+  # PAGINI STATICE (RO)
+  # ========================================
+  - name: "pagini_ro"
+    label: "Pagini (RO)"
+    files:
+      # HOMEPAGE
+      - label: "Homepage"
+        name: "homepage"
+        file: "content/ro/_index.md"
+        fields:
+          - {label: "Titlu Pagină", name: "title", widget: "string", default: "Acasă", required: true}
+
+          # HERO SECTION
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Titlu Principal (H1)", name: "titlu", widget: "string", required: true}
+              - {label: "Subtitlu (H2)", name: "subtitlu", widget: "string", required: true}
+              - {label: "Text Buton CTA", name: "cta_text", widget: "string", default: "Descoperă produsele", required: true}
+              - {label: "Link Buton CTA", name: "cta_link", widget: "string", default: "/produse/", required: true}
+              - label: "Imagine Hero"
+                name: "imagine"
+                widget: "image"
+                required: true
+                hint: "Background hero (min 1920x1080px, landscape) - EDITABILĂ din CMS"
+
+          # DESPRE PREVIEW
+          - label: "Despre Preview"
+            name: "despre_preview"
+            widget: "object"
+            fields:
+              - {label: "Titlu (H2)", name: "titlu", widget: "string", default: "Cine suntem", required: true}
+              - {label: "Text (2-3 paragrafe)", name: "text", widget: "markdown", required: true}
+              - label: "Imagine"
+                name: "imagine"
+                widget: "image"
+                required: false
+                hint: "Poză familie/stupină (opțional) - EDITABILĂ din CMS"
+
+          # PRODUSE FEATURED (selectare produse)
+          - label: "Produse Featured"
+            name: "produse_featured"
+            widget: "object"
+            fields:
+              - {label: "Titlu Secțiune", name: "titlu", widget: "string", default: "Produsele noastre", required: true}
+              - {label: "Text Buton", name: "cta_text", widget: "string", default: "Vezi toate produsele", required: true}
+
+          # ARTICOLE RECENTE
+          - label: "Articole Recente"
+            name: "articole_recente"
+            widget: "object"
+            fields:
+              - {label: "Titlu Secțiune", name: "titlu", widget: "string", default: "Jurnal apicol", required: true}
+              - {label: "Text Buton", name: "cta_text", widget: "string", default: "Vezi toate articolele", required: true}
+
+          # CTA FINAL
+          - label: "CTA Final Section"
+            name: "cta_final"
+            widget: "object"
+            fields:
+              - {label: "Titlu (H2)", name: "titlu", widget: "string", default: "Vrei să comanzi miere naturală?", required: true}
+              - {label: "Text", name: "text", widget: "text", required: true}
+              - {label: "Text Buton Contact", name: "btn_contact", widget: "string", default: "Trimite mesaj", required: true}
+              - {label: "Text Buton Comandă", name: "btn_comanda", widget: "string", default: "Comandă acum", required: true}
+
+      # DESPRE
+      - label: "Despre"
+        name: "despre"
+        file: "content/ro/despre.md"
+        fields:
+          - {label: "Titlu Pagină (H1)", name: "title", widget: "string", default: "Despre noi", required: true}
+
+          # IMAGINE HERO (EDITABILĂ)
+          - label: "Imagine Hero"
+            name: "imagine_hero"
+            widget: "image"
+            required: true
+            hint: "Background hero pagină despre (min 1920x1080px) - EDITABILĂ din CMS"
+
+          # POVESTE
+          - label: "Povestea Noastră"
+            name: "poveste"
+            widget: "object"
+            fields:
+              - {label: "Titlu (H2)", name: "titlu", widget: "string", default: "Cine suntem", required: true}
+              - {label: "Text Poveste", name: "text", widget: "markdown", hint: "3-5 paragrafe", required: true}
+              - label: "Poză Portret (Bogdan/Familie)"
+                name: "imagine_portret"
+                widget: "image"
+                required: false
+                hint: "Opțional - poză personală - EDITABILĂ din CMS"
+
+          # VALORI
+          - label: "Valori"
+            name: "valori"
+            widget: "list"
+            max: 3
+            fields:
+              - {label: "Titlu", name: "titlu", widget: "string", required: true}
+              - {label: "Text", name: "text", widget: "text", required: true}
+
+          # GALERIE STUPINĂ (EDITABILĂ)
+          - label: "Galerie Stupină"
+            name: "galerie"
+            widget: "list"
+            required: false
+            hint: "4-6 imagini cu stupina, albine, lucrări - EDITABILE din CMS"
+            field: {label: "Imagine", name: "imagine", widget: "image"}
+
+      # CONTACT
+      - label: "Contact"
+        name: "contact"
+        file: "content/ro/contact.md"
+        fields:
+          - {label: "Titlu Pagină (H1)", name: "title", widget: "string", default: "Contact", required: true}
+          - {label: "Text Intro", name: "intro", widget: "text", required: true}
+
+          # INFORMAȚII CONTACT
+          - label: "Informații Contact"
+            name: "info"
+            widget: "object"
+            fields:
+              - {label: "Email", name: "email", widget: "string", required: true}
+              - {label: "Telefon", name: "telefon", widget: "string", required: true}
+              - {label: "Locație", name: "locatie", widget: "string", required: true}
+              - {label: "Program", name: "program", widget: "text", required: true}
+              - {label: "Google Maps Embed Code", name: "maps_embed", widget: "text", required: false}
