@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: bogdan790/happybees.ro
   branch: main
 
 # Media Library - Git-based (toate imaginile în repo)
