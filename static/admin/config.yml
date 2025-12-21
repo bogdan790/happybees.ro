@@ -2,8 +2,6 @@ backend:
   name: github
   repo: bogdan790/happybees.ro
   branch: main
-  base_url: https://happybees-ro.pages.dev
-  auth_endpoint: /api/auth
 
 # Media Library - Git-based (toate imaginile în repo)
 media_folder: "static/images/uploads"
