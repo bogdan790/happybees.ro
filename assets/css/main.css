@@ -316,6 +316,27 @@ main {
 }
 
 /* ========================================
+   LINKS & NAVIGATION
+   ======================================== */
+
+.back-link {
+  display: inline-block;
+  margin-top: var(--space-xl);
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-honey-gold);
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--color-honey-gold);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  background-color: var(--color-honey-light);
+  transform: translateX(-4px);
+}
+
+/* ========================================
    BUTTONS
    ======================================== */
 

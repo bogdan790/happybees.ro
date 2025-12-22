@@ -41,6 +41,11 @@ Pentru comenzi, întrebări sau orice nelămurire, nu ezita să ne contactezi!
   <button type="submit" class="btn btn-primary">Trimite mesaj</button>
 </form>
 
+<p class="privacy-note">
+  Datele transmise sunt folosite exclusiv pentru a răspunde solicitării tale.
+  <a href="/politica-de-confidentialitate">Politica de confidențialitate</a>
+</p>
+
 <script src="/js/contact.js"></script>
 
 <style>
@@ -124,5 +129,22 @@ Pentru comenzi, întrebări sau orice nelămurire, nu ezita să ne contactezi!
   background-color: #ccc;
   cursor: not-allowed;
   transform: none;
+}
+
+.privacy-note {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--color-gray-medium, #4a4a4a);
+  text-align: center;
+}
+
+.privacy-note a {
+  color: var(--color-honey-gold, #E6B84E);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.privacy-note a:hover {
+  color: var(--color-honey-hover, #FFCC5C);
 }
 </style>
