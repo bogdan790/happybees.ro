@@ -2,8 +2,10 @@ import { config, fields, collection, singleton } from '@keystatic/core';
 
 export default config({
   storage: {
-    kind: 'github',
-    repo: 'bogdan790/happybees.ro',
+    kind: 'cloud',
+  },
+  cloud: {
+    project: 'happybees/happybees',
   },
 
   collections: {
