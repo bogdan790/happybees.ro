@@ -266,27 +266,225 @@ main {
 }
 
 /* ========================================
-   RESPONSIVE
+   HAMBURGER MENU
    ======================================== */
 
-@media (max-width: 768px) {
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.5rem; }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: var(--color-gray-dark);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger:hover span {
+  background-color: var(--color-honey-gold);
+}
+
+/* Hamburger Animation when Active */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE FIRST
+   ======================================== */
+
+/* Mobile: < 768px */
+@media (max-width: 767px) {
+  /* Typography */
+  html {
+    font-size: 14px;
+  }
+
+  h1 { font-size: 2rem; }     /* 32px */
+  h2 { font-size: 1.5rem; }   /* 24px */
+  h3 { font-size: 1.25rem; }  /* 20px */
+  h4 { font-size: 1rem; }     /* 16px */
+
+  /* Container */
+  :root {
+    --container-padding: 1rem;
+  }
+
+  /* Header */
+  .site-header {
+    padding: var(--space-sm) 0;
+  }
 
   .header-content {
-    flex-direction: column;
-    gap: var(--space-md);
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logo-name {
+    font-size: 1.5rem;
+  }
+
+  .logo-subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+  }
+
+  /* Show Hamburger, Hide Desktop Nav */
+  .hamburger {
+    display: flex;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--color-white);
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    padding-top: 80px;
+  }
+
+  .main-nav.active {
+    right: 0;
   }
 
   .main-nav ul {
     flex-direction: column;
-    gap: var(--space-sm);
-    text-align: center;
+    gap: 0;
+    padding: var(--space-md);
+  }
+
+  .main-nav li {
+    border-bottom: 1px solid var(--color-cream-dark);
+  }
+
+  .main-nav li:last-child {
+    border-bottom: none;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: var(--space-md);
+    font-size: 1.1rem;
+    text-align: left;
+  }
+
+  /* Mobile Overlay */
+  .mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-overlay.active {
+    display: block;
+    opacity: 1;
+  }
+
+  /* Footer Mobile */
+  .site-footer {
+    padding: var(--space-lg) 0 var(--space-md);
+    margin-top: var(--space-xl);
+  }
+
+  .footer-logo .logo-name {
+    font-size: 1.25rem;
+  }
+
+  .footer-logo .logo-subtitle {
+    font-size: 0.65rem;
   }
 
   .footer-nav ul {
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: var(--space-sm);
+  }
+
+  .footer-nav li {
+    flex: 0 0 calc(50% - var(--space-sm));
+    text-align: center;
+  }
+
+  .copyright {
+    font-size: 0.75rem;
+    padding: 0 var(--space-sm);
+  }
+
+  /* Buttons */
+  .btn-primary {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+  }
+
+  /* Cards */
+  .card {
+    padding: var(--space-md);
+  }
+}
+
+/* Tablet: 768px - 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Typography */
+  h1 { font-size: 2.75rem; }
+  h2 { font-size: 2.25rem; }
+  h3 { font-size: 1.6rem; }
+
+  /* Header */
+  .logo-name {
+    font-size: 1.75rem;
+  }
+
+  .main-nav ul {
+    gap: var(--space-md);
+  }
+
+  .main-nav a {
+    font-size: 0.95rem;
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  /* Footer */
+  .footer-nav ul {
+    gap: var(--space-md);
+  }
+
+  .footer-nav a {
+    font-size: 0.85rem;
+  }
+}
+
+/* Large Desktop: > 1400px */
+@media (min-width: 1400px) {
+  :root {
+    --container-max: 1400px;
   }
 }

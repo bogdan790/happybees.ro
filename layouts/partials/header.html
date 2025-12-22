@@ -9,8 +9,15 @@
         </a>
       </div>
 
+      {{/* Hamburger Button (Mobile Only) */}}
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       {{/* Navigation */}}
-      <nav class="main-nav">
+      <nav class="main-nav" id="main-nav">
         <ul>
           {{ range .Site.Menus.main }}
             <li>
@@ -23,4 +30,7 @@
       </nav>
     </div>
   </div>
+
+  {{/* Mobile Overlay */}}
+  <div class="mobile-overlay" id="mobile-overlay"></div>
 </header>
