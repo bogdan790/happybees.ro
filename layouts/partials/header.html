@@ -4,8 +4,7 @@
       {{/* Logo */}}
       <div class="logo">
         <a href="{{ .Site.BaseURL }}">
-          <span class="logo-name">Happy Bees</span>
-          <span class="logo-subtitle">STUPINA BOGDĂNEL</span>
+          <img src="/images/logo/logo-HB.png" alt="Happy Bees - Stupina Bogdănel" class="logo-image">
         </a>
       </div>
 
@@ -19,13 +18,20 @@
       {{/* Navigation */}}
       <nav class="main-nav" id="main-nav">
         <ul>
+          {{ $currentPage := . }}
           {{ range .Site.Menus.main }}
             <li>
-              <a href="{{ .URL }}" {{ if $.IsMenuCurrent "main" . }}class="active"{{ end }}>
+              <a href="{{ .URL }}" class="{{ if or (eq .URL $currentPage.RelPermalink) (eq .URL $currentPage.Permalink) ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}">
                 {{ .Name }}
               </a>
             </li>
           {{ end }}
+          {{/* Logo in mobile nav */}}
+          <li class="nav-footer-logo">
+            <a href="{{ .Site.BaseURL }}">
+              <img src="/images/logo/logo-HB.png" alt="Happy Bees" class="nav-logo-image">
+            </a>
+          </li>
         </ul>
       </nav>
     </div>

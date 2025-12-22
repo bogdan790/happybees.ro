@@ -10,8 +10,13 @@
       {{/* Footer Nav */}}
       <nav class="footer-nav">
         <ul>
+          {{ $currentPage := . }}
           {{ range .Site.Menus.main }}
-            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+            <li>
+              <a href="{{ .URL }}" class="{{ if or (eq .URL $currentPage.RelPermalink) (eq .URL $currentPage.Permalink) ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}">
+                {{ .Name }}
+              </a>
+            </li>
           {{ end }}
         </ul>
       </nav>

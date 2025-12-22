@@ -189,7 +189,7 @@ main {
 .site-header {
   background-color: var(--color-white);
   border-bottom: 1px solid var(--color-cream-dark);
-  padding: var(--space-md) 0;
+  padding: 0.2rem 0;
 }
 
 .header-content {
@@ -202,6 +202,11 @@ main {
   display: flex;
   flex-direction: column;
   color: var(--color-black);
+}
+
+.logo-image {
+  max-width: 180px;
+  height: auto;
 }
 
 .logo-name {
@@ -222,15 +227,16 @@ main {
 
 .main-nav ul {
   display: flex;
-  gap: var(--space-lg);
+  gap: var(--space-md);
   list-style: none;
 }
 
 .main-nav a {
   font-family: var(--font-body);
   font-weight: 600;
+  font-size: 1.1rem;
   color: var(--color-gray-dark);
-  padding: var(--space-xs) var(--space-sm);
+  padding: 0.48rem 0.95rem;
   border-radius: 4px;
   transition: all 0.3s ease;
 }
@@ -241,6 +247,11 @@ main {
   background-color: var(--color-honey-light);
 }
 
+/* Logo in mobile nav - hidden on desktop */
+.nav-footer-logo {
+  display: none;
+}
+
 /* ========================================
    FOOTER
    ======================================== */
@@ -248,7 +259,7 @@ main {
 .site-footer {
   background-color: var(--color-cream);
   border-top: 1px solid var(--color-cream-dark);
-  padding: var(--space-xl) 0 var(--space-lg);
+  padding: var(--space-sm) 0 var(--space-xs);
   margin-top: var(--space-2xl);
 }
 
@@ -257,7 +268,7 @@ main {
 }
 
 .footer-logo {
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-xs);
 }
 
 .footer-logo .logo-name {
@@ -282,12 +293,21 @@ main {
   justify-content: center;
   gap: var(--space-lg);
   list-style: none;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-xs);
 }
 
 .footer-nav a {
   color: var(--color-gray-dark);
   font-size: 0.9rem;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.footer-nav a:hover,
+.footer-nav a.active {
+  color: var(--color-honey-gold);
+  background-color: var(--color-honey-light);
 }
 
 .copyright {
@@ -412,6 +432,10 @@ main {
     justify-content: space-between;
   }
 
+  .logo-image {
+    max-width: 132px;
+  }
+
   .logo-name {
     font-size: 1.5rem;
   }
@@ -430,14 +454,15 @@ main {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 80%;
-    max-width: 300px;
+    width: 46%;
+    max-width: 173px;
     height: 100vh;
     background-color: var(--color-white);
     box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
     transition: right 0.3s ease;
     z-index: 1000;
-    padding-top: 80px;
+    padding-top: 50px;
+    overflow-y: auto;
   }
 
   .main-nav.active {
@@ -465,6 +490,26 @@ main {
     text-align: left;
   }
 
+  /* Logo in mobile nav */
+  .nav-footer-logo {
+    display: list-item;
+    text-align: center;
+    padding: var(--space-lg) 0;
+    border-bottom: none;
+    list-style: none;
+  }
+
+  .nav-footer-logo a {
+    padding: 0;
+    display: block;
+  }
+
+  .nav-logo-image {
+    max-width: 120px;
+    height: auto;
+    opacity: 0.9;
+  }
+
   /* Mobile Overlay */
   .mobile-overlay {
     display: none;
@@ -486,7 +531,7 @@ main {
 
   /* Footer Mobile */
   .site-footer {
-    padding: var(--space-lg) 0 var(--space-md);
+    padding: var(--space-sm) 0 var(--space-xs);
     margin-top: var(--space-xl);
   }
 
@@ -500,12 +545,8 @@ main {
 
   .footer-nav ul {
     flex-wrap: wrap;
-    gap: var(--space-sm);
-  }
-
-  .footer-nav li {
-    flex: 0 0 calc(50% - var(--space-sm));
-    text-align: center;
+    justify-content: center;
+    gap: var(--space-xs) var(--space-md);
   }
 
   .copyright {
@@ -577,6 +618,14 @@ main {
   .contact-form button[type="submit"] {
     min-height: 48px;
     font-size: 1.1rem;
+  }
+}
+
+/* Mobile Landscape: Wider navigation panel */
+@media (max-width: 767px) and (orientation: landscape) {
+  .main-nav {
+    width: 48%;
+    max-width: 182px;
   }
 }
 
