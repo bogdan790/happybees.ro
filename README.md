@@ -5,7 +5,7 @@ Site de prezentare pentru stupina Happy Bees - miere naturală și produse apico
 ## Stack Tehnologic
 
 - **Hugo** (Static Site Generator) - v0.122.0
-- **Decap CMS** (Content Management) - Git-based, self-hosted
+- **Keystatic CMS** (Content Management) - Git-based, React UI
 - **Cloudflare Pages** (Hosting) - Deploy automat, SSL gratuit
 
 ## Status Proiect
@@ -38,22 +38,36 @@ happybees.ro/
 └── /contact/
 ```
 
-## Dezvoltare Locală (TODO - Phase 4)
+## Dezvoltare Locală
 
 ```bash
-# Install Hugo
-sudo snap install hugo
+# Install dependencies
+npm install
 
-# Run development server
-hugo server
+# Run Hugo dev server
+hugo server -D
 
-# Build site
-hugo --minify
+# Run Keystatic admin (separate terminal)
+npm run dev:admin
+
+# Build everything (Keystatic admin + Hugo site)
+npm run build
 ```
+
+### Acces CMS
+
+Accesează `/admin/` pentru Keystatic CMS (necesită autentificare GitHub)
 
 ## Deploy
 
 Site-ul se deploy-ează automat pe Cloudflare Pages la fiecare commit pe branch `main`.
+
+### Cloudflare Pages Build Settings
+
+- **Build command:** `npm run build` (detectat automat din package.json)
+- **Build output:** `public`
+- **Node version:** 18 (din .node-version)
+- **Environment:** Production branch = `main`
 
 ---
 
