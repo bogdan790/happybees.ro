@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   root: 'admin',
+  base: '/admin/',
   build: {
     outDir: '../public/admin',
     emptyOutDir: true,
