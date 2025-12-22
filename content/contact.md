@@ -2,9 +2,9 @@
 title: "Contact"
 intro: "Ai întrebări sau vrei să comanzi? Completează formularul sau contactează-ne direct."
 info:
-  email: "contact@happybees.ro"
+  email: "bogdan.pavel@happybees.ro"
   telefon: "+40 7XX XXX XXX"
-  locatie: "Zona de câmpie, județul [completează]"
+  locatie: "Brătășani, județul [Teleorman]"
   program: |
     Luni - Vineri: 9:00 - 18:00
     Sâmbătă - Duminică: La programare
@@ -42,8 +42,7 @@ Pentru comenzi, întrebări sau orice nelămurire, nu ezita să ne contactezi!
 </form>
 
 <p class="privacy-note">
-  Datele transmise sunt folosite exclusiv pentru a răspunde solicitării tale.
-  <a href="/politica-de-confidentialitate">Politica de confidențialitate</a>
+  Datele transmise sunt folosite exclusiv pentru a răspunde solicitării tale. Pentru detalii consultă <a href="/politica-de-confidentialitate">Politica de confidențialitate</a>.
 </p>
 
 <script src="/js/contact.js"></script>
