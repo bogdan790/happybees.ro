@@ -1,10 +1,9 @@
 /**
  * Cloudflare Pages Function - Contact Form Handler
- * Sends email via SMTP using credentials from environment variables
+ * Sends email via Resend API (HTTP-based, Cloudflare Workers compatible)
  */
 
-// Nodemailer will be installed by Cloudflare Pages at build time
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 export async function onRequestPost(context) {
   const { request, env } = context;
@@ -43,31 +42,15 @@ export async function onRequestPost(context) {
       );
     }
 
-    // Create SMTP transporter using environment variables
-    const transporter = nodemailer.createTransport({
-      host: env.SMTP_HOST,
-      port: parseInt(env.SMTP_PORT || '587'),
-      secure: env.SMTP_PORT === '465', // true for 465, false for other ports
-      auth: {
-        user: env.SMTP_USER,
-        pass: env.SMTP_PASS,
-      },
-    });
+    // Initialize Resend client with API key from environment
+    const resend = new Resend(env.RESEND_API_KEY);
 
-    // Email content
-    const mailOptions = {
-      from: env.SMTP_FROM || env.SMTP_USER,
-      to: env.SMTP_TO,
+    // Send email using Resend API
+    const { data, error } = await resend.emails.send({
+      from: env.EMAIL_FROM || 'noreply@happybees.ro',
+      to: env.EMAIL_TO || 'bogdan.pavel@happybees.ro',
       replyTo: email,
       subject: `Contact Happy Bees: ${name}`,
-      text: `
-Nume: ${name}
-Email: ${email}
-${phone ? `Telefon: ${phone}` : ''}
-
-Mesaj:
-${message}
-      `,
       html: `
 <!DOCTYPE html>
 <html>
@@ -104,16 +87,29 @@ ${message}
 </body>
 </html>
       `,
-    };
+    });
 
-    // Send email
-    await transporter.sendMail(mailOptions);
+    // Check for errors from Resend API
+    if (error) {
+      console.error('Resend API error:', error);
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'A apărut o eroare la trimiterea mesajului. Vă rugăm încercați din nou mai târziu.'
+        }),
+        {
+          status: 500,
+          headers: { 'Content-Type': 'application/json' }
+        }
+      );
+    }
 
     // Success response
     return new Response(
       JSON.stringify({
         success: true,
-        message: 'Mesajul a fost trimis cu succes! Vă vom contacta în curând.'
+        message: 'Mesajul a fost trimis cu succes! Vă vom contacta în curând.',
+        emailId: data?.id
       }),
       {
         status: 200,
@@ -125,7 +121,7 @@ ${message}
     );
 
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Error processing contact form:', error);
 
     return new Response(
       JSON.stringify({
