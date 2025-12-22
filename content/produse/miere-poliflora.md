@@ -1,5 +1,5 @@
 ---
-title: "Miere Poliflora"
+title: "Miere Polifloră"
 date: 2025-01-10T10:00:00+02:00
 pret: 40.0
 unitate: "kg"
@@ -17,13 +17,13 @@ caracteristici:
   - item: "Recoltare: Iunie - August"
 ---
 
-## Despre Mierea Poliflora
+## Despre Mierea Polifloră
 
-Mierea poliflora, cunoscută și ca "miere de flori", este produsă de albine din nectarul mai multor specii de plante. Această diversitate îi conferă un gust bogat, complex și aromat.
+Mierea polifloră, cunoscută și ca "miere de flori", este produsă de albine din nectarul mai multor specii de plante. Această diversitate îi conferă un gust bogat, complex și aromat.
 
 ### Caracteristici
 
-Spre deosebire de mierea monoflora (dintr-un singur tip de floare), mierea poliflora variază de la recoltare la recoltare, în funcție de florile disponibile în zonă. Aceasta o face unică și specială.
+Spre deosebire de mierea monofloră (dintr-un singur tip de floare), mierea polifloră variază de la recoltare la recoltare, în funcție de florile disponibile în zonă. Aceasta o face unică și specială.
 
 Culoarea este de obicei galben-auriu, mai închisă decât salcâmul, iar gustul este mai intens și aromat.
 
@@ -44,4 +44,4 @@ Perfectă pentru:
 
 ## Producție
 
-Mierea noastră poliflora este recoltată în perioada verii (Iunie-August), când câmpurile sunt pline de flori diverse: rapită, trifoi, floarea-soarelui, și multe altele. Fiecare borcan este unic, reflectând flora locală din momentul recoltării.
+Mierea noastră polifloră este recoltată vara (iunie–august), în zona de câmpie a județului Teleorman, unde predomină floarea-soarelui, alături de lucernă, trifoi, pălămidă și alte plante spontane de câmp. Fiecare borcan este unic, reflectând flora locală specifică momentului recoltării.
