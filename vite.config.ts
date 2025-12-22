@@ -6,7 +6,7 @@ export default defineConfig({
   root: 'admin',
   base: '/admin/',
   build: {
-    outDir: '../public/admin',
+    outDir: '../static/admin',
     emptyOutDir: true,
   },
   server: {
