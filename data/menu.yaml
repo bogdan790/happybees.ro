@@ -1,0 +1,16 @@
+items:
+  - label: Acasă
+    url: /
+    order: 1
+  - label: Despre
+    url: /despre/
+    order: 2
+  - label: Produse
+    url: /produse/
+    order: 3
+  - label: Articole
+    url: /articole/
+    order: 4
+  - label: Contact
+    url: /contact/
+    order: 5
