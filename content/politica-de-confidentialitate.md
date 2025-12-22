@@ -87,7 +87,7 @@ Conform GDPR, utilizatorii beneficiază de:
 
 Pentru orice solicitări legate de datele cu caracter personal, ne poți contacta la:
 
-**Email:** contact@happybees.ro
+**Email:** bogdan.pavel@happybees.ro
 **Website:** https://happybees.ro
 
 ## 9. Modificări
