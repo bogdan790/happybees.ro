@@ -6,7 +6,7 @@ poveste:
   text: |
     ## Povestea Happy Bees
 
-    Stupina Happy Bees a început ca un hobby al familiei Bogdănel, în urmă cu peste 10 ani. Ce a pornit ca o curiozitate și dorință de a înțelege lumea albinelor s-a transformat treptat într-o pasiune autentică.
+    Stupina Happy Bees a început ca un hobby al familiei Bogdănel, în urmă cu peste 8 ani. Ce a pornit ca o curiozitate și dorință de a înțelege lumea albinelor s-a transformat treptat într-o pasiune autentică.
 
     Primele familii de albine au fost instalate în grădina casei, sub îndrumarea unui apicultor experimentat din zonă. Am învățat pas cu pas: de la primele verificări de primăvară, la recoltarea mierii, până la pregătirea stupilor pentru iarnă.
 

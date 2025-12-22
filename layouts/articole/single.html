@@ -2,29 +2,13 @@
 
 {{ define "main" }}
 
-{{/* Hero Section cu imagine */}}
-{{ if .Params.imagine_hero }}
-<section style="background-image: url('{{ .Params.imagine_hero }}'); background-size: cover; background-position: center; min-height: 400px; display: flex; align-items: flex-end; position: relative;">
-  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);"></div>
-  <div class="container" style="position: relative; padding: var(--space-xl) var(--container-padding);">
-    <h1 style="color: white; margin-bottom: var(--space-sm);">{{ .Title }}</h1>
-    <p style="color: rgba(255,255,255,0.9); font-size: 0.875rem;">
-      {{ .Date.Format "2 January 2006" }} | {{ .Params.categorie }}
-    </p>
-  </div>
-</section>
-{{ end }}
-
-{{/* Conținut articol */}}
 <article style="padding: var(--space-2xl) 0;">
   <div class="container" style="max-width: 800px;">
 
-    {{ if not .Params.imagine_hero }}
     <h1>{{ .Title }}</h1>
     <p style="color: var(--color-gray-medium); margin-bottom: var(--space-xl);">
       {{ .Date.Format "2 January 2006" }} | {{ .Params.categorie }}
     </p>
-    {{ end }}
 
     <div class="content">
       {{ .Content }}

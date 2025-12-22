@@ -95,7 +95,7 @@ a:hover {
 }
 
 /* ========================================
-   LAYOUT
+   LAYOUT - MOBILE FIRST
    ======================================== */
 
 .container {
@@ -106,6 +106,80 @@ a:hover {
 
 main {
   min-height: 60vh;
+}
+
+/* Grid Layouts - Semantic Classes */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.layout-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.layout-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+/* Hero Sections */
+.hero {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: 500px;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+}
+
+/* Text Container - Reading Width */
+.text-container {
+  max-width: 65ch;  /* Optimal reading width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Article Card - Specific */
+.card-article {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.card-article img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 /* ========================================
@@ -313,9 +387,9 @@ main {
 
 /* Mobile: < 768px */
 @media (max-width: 767px) {
-  /* Typography */
+  /* Typography - MOBILE OPTIMIZED */
   html {
-    font-size: 14px;
+    font-size: 16px;  /* FIX: creștere de la 14px pentru lizibilitate mobilă */
   }
 
   h1 { font-size: 2rem; }     /* 32px */
@@ -328,9 +402,9 @@ main {
     --container-padding: 1rem;
   }
 
-  /* Header */
+  /* HEADER - COMPACT MOBILE */
   .site-header {
-    padding: var(--space-sm) 0;
+    padding: var(--space-xs) 0;
   }
 
   .header-content {
@@ -445,9 +519,64 @@ main {
     font-size: 0.95rem;
   }
 
-  /* Cards */
+  /* CARDS - MOBILE OPTIMIZATION */
   .card {
-    padding: var(--space-md);
+    padding: var(--space-lg);
+    width: 100%;
+  }
+
+  /* LAYOUT CLASSES - MOBILE: TOATE DEVIN 1 COLOANĂ */
+  .grid-2,
+  .grid-3,
+  .layout-split {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  /* HERO - MOBILE COMPACT (max 35-40vh) */
+  .hero {
+    min-height: clamp(300px, 35vh, 400px);
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  /* ARTICLE CARD - MOBILE: STACKED VERTICAL */
+  .card-article {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .card-article img {
+    height: auto;
+    max-height: 220px;
+  }
+
+  /* TEXT CONTAINER - FULL WIDTH ON MOBILE */
+  .text-container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  /* BUTTONS - TOUCH FRIENDLY */
+  .btn-primary,
+  .card .btn-primary {
+    min-height: 48px;
+    padding: 14px 24px;
+  }
+
+  /* CONTACT FORM - FULL WIDTH INPUTS */
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .contact-form button[type="submit"] {
+    min-height: 48px;
+    font-size: 1.1rem;
   }
 }
 

@@ -2,16 +2,16 @@
 title: "Acasă"
 hero:
   titlu: "Happy Bees"
-  subtitlu: "Miere naturală din stupina familiei Bogdănel"
+  subtitlu: "Miere naturală din stupina Bogdănel"
   cta_text: "Descoperă produsele"
   cta_link: "/produse/"
   imagine: "/images/uploads/hero-homepage-placeholder.jpg"
 despre_preview:
   titlu: "Cine suntem"
   text: |
-    Stupina Happy Bees a început ca un hobby al familiei Bogdănel, în urmă cu peste 10 ani.
+    Stupina Happy Bees a început ca un hobby al familiei noastre, în urmă cu 8 ani.
 
-    Astăzi, cele 20 de familii de albine produc miere naturală, nefiltrat\u0103, exact așa cum o face natura.
+    Astăzi, cele peste 30 de familii de albine produc miere naturală, nefiltrată, exact așa cum o culeg si procesează albinele din natură.
 
     Fiecare borcan de miere este rezultatul muncii pasionate și grijii pentru fiecare stup.
   imagine: "/images/uploads/despre-preview-placeholder.jpg"

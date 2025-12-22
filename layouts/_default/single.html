@@ -2,59 +2,27 @@
 
 {{ define "main" }}
 
-{{/* Hero pentru Despre */}}
-{{ if .Params.imagine_hero }}
-<section style="background-image: url('{{ .Params.imagine_hero }}'); background-size: cover; background-position: center; min-height: 300px; display: flex; align-items: center; position: relative;">
-  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5));"></div>
-  <div class="container" style="position: relative;">
-    <h1 style="color: white;">{{ .Title }}</h1>
-  </div>
-</section>
-{{ end }}
-
 <article style="padding: var(--space-2xl) 0;">
   <div class="container" style="max-width: 900px;">
 
-    {{ if not .Params.imagine_hero }}
     <h1>{{ .Title }}</h1>
-    {{ end }}
 
     {{/* Pentru pagina Despre */}}
     {{ if .Params.poveste }}
     <section style="margin: var(--space-2xl) 0;">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: start;">
-        <div>
-          <h2>{{ .Params.poveste.titlu }}</h2>
-          {{ .Params.poveste.text | markdownify }}
-        </div>
-        {{ if .Params.poveste.imagine_portret }}
-        <div>
-          <img src="{{ .Params.poveste.imagine_portret }}" alt="Bogdan" style="width: 100%; border-radius: 12px;">
-        </div>
-        {{ end }}
-      </div>
+      <h2>{{ .Params.poveste.titlu }}</h2>
+      {{ .Params.poveste.text | markdownify }}
     </section>
 
     {{ if .Params.valori }}
     <section style="margin: var(--space-2xl) 0;">
       <h2 style="text-align: center; margin-bottom: var(--space-xl);">Valorile noastre</h2>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg);">
+      <div class="grid-3">
         {{ range .Params.valori }}
         <div class="card" style="text-align: center;">
           <h3>{{ .titlu }}</h3>
           <p>{{ .text }}</p>
         </div>
-        {{ end }}
-      </div>
-    </section>
-    {{ end }}
-
-    {{ if .Params.galerie }}
-    <section style="margin: var(--space-2xl) 0;">
-      <h2 style="text-align: center; margin-bottom: var(--space-xl);">Stupina noastră</h2>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md);">
-        {{ range .Params.galerie }}
-        <img src="{{ .imagine }}" alt="Stupina Happy Bees" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px;">
         {{ end }}
       </div>
     </section>
@@ -73,7 +41,7 @@
     {{ if .Params.intro }}
     <p style="font-size: 1.125rem; margin-bottom: var(--space-xl);">{{ .Params.intro }}</p>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl);">
+    <div class="layout-split">
       {{/* Contact Form - render from .Content */}}
       <div>
         <h2>Trimite-ne un mesaj</h2>
