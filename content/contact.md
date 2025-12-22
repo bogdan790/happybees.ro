@@ -4,7 +4,7 @@ intro: "Ai întrebări sau vrei să comanzi? Completează formularul sau contact
 info:
   email: "bogdan.pavel@happybees.ro"
   telefon: "+40 7XX XXX XXX"
-  locatie: "Brătășani, județul [Teleorman]"
+  locatie: "Brătășani, județul Teleorman"
   program: |
     Luni - Vineri: 9:00 - 18:00
     Sâmbătă - Duminică: La programare
