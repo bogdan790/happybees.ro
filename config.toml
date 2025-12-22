@@ -73,6 +73,12 @@ defaultContentLanguageInSubdir = false  # NU adaugă /ro/ la URL-uri
   home = ["HTML", "RSS"]
   section = ["HTML"]
 
+# Goldmark Markdown Renderer
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true  # Allow inline HTML in Markdown (required for Contact form)
+
 # Minify HTML/CSS/JS la build
 [minify]
   minifyOutput = true

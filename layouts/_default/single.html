@@ -74,15 +74,10 @@
     <p style="font-size: 1.125rem; margin-bottom: var(--space-xl);">{{ .Params.intro }}</p>
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl);">
-      {{/* Formulare - placeholder */}}
+      {{/* Contact Form - render from .Content */}}
       <div>
         <h2>Trimite-ne un mesaj</h2>
-        <p style="color: var(--color-gray-medium); margin-bottom: var(--space-lg);">
-          Formulare contact vor fi adăugate în Phase 4.4 (cu Cloudflare Pages Functions).
-        </p>
-        <div class="card">
-          <p>Formular contact (placeholder)</p>
-        </div>
+        {{ .Content }}
       </div>
 
       {{/* Info contact */}}
