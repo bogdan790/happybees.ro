@@ -4,7 +4,7 @@
  */
 
 // Nodemailer will be installed by Cloudflare Pages at build time
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
 
 export async function onRequestPost(context) {
   const { request, env } = context;
