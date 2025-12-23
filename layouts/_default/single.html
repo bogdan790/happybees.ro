@@ -41,7 +41,7 @@
     {{ if .Params.intro }}
     <p style="font-size: 1.125rem; margin-bottom: var(--space-xl);">{{ .Params.intro }}</p>
 
-    <div class="layout-split">
+    <div class="layout-split contact-page-layout">
       {{/* Contact Form - render from .Content */}}
       <div>
         <h2>Trimite-ne un mesaj</h2>
@@ -50,7 +50,7 @@
 
       {{/* Info contact */}}
       {{ if .Params.info }}
-      <div>
+      <div class="contact-info-column">
         <h2>Informații contact</h2>
         <div class="card">
           {{ if .Params.info.email }}
@@ -71,6 +71,9 @@
           <p><strong>Program:</strong><br>{{ .Params.info.program | markdownify }}</p>
           {{ end }}
         </div>
+
+        {{/* Container pentru privacy note pe desktop */}}
+        <div class="privacy-note-desktop-container"></div>
       </div>
       {{ end }}
     </div>

@@ -15,6 +15,7 @@ Pentru comenzi, întrebări sau orice nelămurire, nu ezita să ne contactezi!
 
 ## Formular de contact
 
+<div class="form-wrapper">
 <form id="contact-form" class="contact-form">
   <div class="form-group">
     <label for="name">Nume *</label>
@@ -40,12 +41,48 @@ Pentru comenzi, întrebări sau orice nelămurire, nu ezita să ne contactezi!
 
   <button type="submit" class="btn btn-primary">Trimite mesaj</button>
 </form>
+</div>
 
+<div class="privacy-note-wrapper">
 <p class="privacy-note">
   Datele transmise sunt folosite exclusiv pentru a răspunde solicitării tale. Pentru detalii consultă <a href="/politica-de-confidentialitate">Politica de confidențialitate</a>.
 </p>
+</div>
 
 <script src="/js/contact.js"></script>
+
+<script>
+// Mută privacy note în funcție de viewport
+function repositionPrivacyNote() {
+  const privacyNote = document.querySelector('.privacy-note');
+  const desktopContainer = document.querySelector('.privacy-note-desktop-container');
+  const submitButton = document.querySelector('.contact-form button[type="submit"]');
+  const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+
+  if (!privacyNote) return;
+
+  if (isDesktop && desktopContainer) {
+    // Desktop: mută în container-ul din coloana dreaptă (sub card)
+    if (!desktopContainer.contains(privacyNote)) {
+      desktopContainer.appendChild(privacyNote);
+    }
+  } else if (!isDesktop && submitButton) {
+    // Mobil: mută înainte de butonul "Trimite mesaj"
+    if (privacyNote.nextElementSibling !== submitButton) {
+      submitButton.parentNode.insertBefore(privacyNote, submitButton);
+    }
+  }
+}
+
+// Rulează la încărcare și la resize
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', repositionPrivacyNote);
+} else {
+  repositionPrivacyNote();
+}
+
+window.addEventListener('resize', repositionPrivacyNote);
+</script>
 
 <style>
 .contact-form {
@@ -132,9 +169,9 @@ Pentru comenzi, întrebări sau orice nelămurire, nu ezita să ne contactezi!
 
 .privacy-note {
   margin-top: 1.5rem;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--color-gray-medium, #4a4a4a);
-  text-align: center;
+  line-height: 1.6;
 }
 
 .privacy-note a {
@@ -145,5 +182,70 @@ Pentru comenzi, întrebări sau orice nelămurire, nu ezita să ne contactezi!
 
 .privacy-note a:hover {
   color: var(--color-honey-hover, #FFCC5C);
+}
+
+/* Ascunde wrapper-ul privacy-note-wrapper pe desktop (elementul va fi mutat) */
+@media (min-width: 768px) {
+  .privacy-note-wrapper {
+    display: none;
+  }
+
+  /* Container pentru privacy note pe desktop */
+  .privacy-note-desktop-container {
+    margin-top: var(--space-lg);
+  }
+
+  /* Stilizare pentru privacy-note ca element distinct pe desktop */
+  .privacy-note-desktop-container .privacy-note {
+    padding: 1rem 1.25rem;
+    background-color: var(--color-cream-light, #FFFBF0);
+    border-left: 3px solid var(--color-honey-gold, #E6B84E);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--color-gray-medium, #4a4a4a);
+    line-height: 1.6;
+    text-align: left;
+    margin: 0;
+  }
+
+  .privacy-note-desktop-container .privacy-note a {
+    color: var(--color-honey-gold, #E6B84E);
+    font-weight: 600;
+  }
+
+  .privacy-note-desktop-container .privacy-note a:hover {
+    color: var(--color-honey-hover, #FFCC5C);
+  }
+}
+
+/* Pe mobil, privacy-note este mutat înainte de butonul submit */
+@media (max-width: 767px) {
+  /* Ascunde wrapper-ul original și container-ul desktop pe mobil */
+  .privacy-note-wrapper,
+  .privacy-note-desktop-container {
+    display: none;
+  }
+
+  /* Stilizare pentru privacy-note când este în formular (înainte de submit) */
+  .contact-form .privacy-note {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    background-color: var(--color-cream-light, #FFFBF0);
+    border-left: 3px solid var(--color-honey-gold, #E6B84E);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--color-gray-medium, #4a4a4a);
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .contact-form .privacy-note a {
+    color: var(--color-honey-gold, #E6B84E);
+    font-weight: 600;
+  }
+
+  .contact-form .privacy-note a:hover {
+    color: var(--color-honey-hover, #FFCC5C);
+  }
 }
 </style>
