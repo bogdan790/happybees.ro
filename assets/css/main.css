@@ -431,6 +431,16 @@ nav[style*="justify-content: space-between"] a:hover {
   transform: translateY(-4px);
 }
 
+/* Cards in grid layouts - align buttons to bottom */
+.layout-cards .card {
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+}
+
+.layout-cards .card .btn-primary {
+  justify-self: start;
+}
+
 /* ========================================
    HAMBURGER MENU
    ======================================== */
