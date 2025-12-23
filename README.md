@@ -5,7 +5,7 @@ Site de prezentare pentru stupina Happy Bees - miere naturală și produse apico
 ## Stack Tehnologic
 
 - **Hugo** (Static Site Generator) - v0.122.0
-- **Keystatic CMS** (Content Management) - Git-based, React UI
+- **Decap CMS** (Content Management) - Git-based CMS
 - **Cloudflare Pages** (Hosting) - Deploy automat, SSL gratuit
 
 ## Status Proiect
@@ -47,16 +47,13 @@ npm install
 # Run Hugo dev server
 hugo server -D
 
-# Run Keystatic admin (separate terminal)
-npm run dev:admin
-
-# Build everything (Keystatic admin + Hugo site)
+# Build site
 npm run build
 ```
 
 ### Acces CMS
 
-Accesează `/admin/` pentru Keystatic CMS (necesită autentificare GitHub)
+Accesează `/admin/` pentru Decap CMS (necesită autentificare GitHub)
 
 ## Deploy
 

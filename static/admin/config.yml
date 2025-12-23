@@ -1,0 +1,191 @@
+# Decap CMS Configuration - Happy Bees
+backend:
+  name: github
+  repo: bogdan790/happybees.ro
+  branch: main
+
+# Publish mode
+publish_mode: simple
+
+# Media folder for uploads
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+# Limba interfață
+locale: 'ro'
+
+# Collections
+collections:
+  # Produse
+  - name: "produse"
+    label: "Produse"
+    label_singular: "Produs"
+    folder: "content/produse"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Titlu", name: "title", widget: "string"}
+      - {label: "Dată publicare", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ", date_format: "DD.MM.YYYY", time_format: "HH:mm"}
+      - {label: "Preț", name: "pret", widget: "number", value_type: "float", min: 0, step: 0.5}
+      - {label: "Unitate", name: "unitate", widget: "select", options: ["kg", "buc", "ml", "g"], default: "kg"}
+      - {label: "Disponibilitate", name: "disponibilitate", widget: "select", options: ["Disponibil", "Indisponibil", "La comandă"], default: "Disponibil"}
+      - {label: "Imagine principală", name: "imagine", widget: "image"}
+      - label: "Galerie imagini"
+        name: "galerie"
+        widget: "list"
+        required: false
+        fields:
+          - {label: "Imagine", name: "imagine", widget: "image"}
+      - {label: "Descriere scurtă", name: "descriere_scurta", widget: "text", required: false}
+      - label: "Caracteristici"
+        name: "caracteristici"
+        widget: "list"
+        required: false
+        fields:
+          - {label: "Caracteristică", name: "item", widget: "string"}
+      - {label: "Conținut", name: "body", widget: "markdown"}
+
+  # Articole
+  - name: "articole"
+    label: "Articole"
+    label_singular: "Articol"
+    folder: "content/articole"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Titlu", name: "title", widget: "string"}
+      - {label: "Dată publicare", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ", date_format: "DD.MM.YYYY", time_format: "HH:mm"}
+      - {label: "Ordine afișare", name: "weight", widget: "number", value_type: "int", min: 1, default: 1, hint: "Număr mai mic = afișat mai sus"}
+      - {label: "Categorie", name: "categorie", widget: "select", options: ["Primăvară", "Vară", "Toamnă", "Iarnă", "General"], default: "General"}
+      - {label: "Imagine hero", name: "imagine_hero", widget: "image"}
+      - {label: "Imagine card", name: "imagine_card", widget: "image"}
+      - {label: "Rezumat", name: "rezumat", widget: "text"}
+      - {label: "Conținut", name: "body", widget: "markdown"}
+
+  # Pagini
+  - name: "pages"
+    label: "Pagini"
+    label_singular: "Pagină"
+    files:
+      # Homepage
+      - label: "Pagina principală"
+        name: "homepage"
+        file: "content/_index.md"
+        fields:
+          - {label: "Titlu pagină", name: "title", widget: "string", default: "Acasă"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Titlu", name: "titlu", widget: "string"}
+              - {label: "Subtitlu", name: "subtitlu", widget: "string"}
+              - {label: "Text buton", name: "cta_text", widget: "string"}
+              - {label: "Link buton", name: "cta_link", widget: "string"}
+              - {label: "Imagine fundal", name: "imagine", widget: "image"}
+          - label: "Secțiune Despre (preview)"
+            name: "despre_preview"
+            widget: "object"
+            fields:
+              - {label: "Titlu", name: "titlu", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
+              - {label: "Imagine", name: "imagine", widget: "image"}
+          - label: "Produse featured"
+            name: "produse_featured"
+            widget: "object"
+            fields:
+              - {label: "Titlu secțiune", name: "titlu", widget: "string"}
+              - {label: "Text buton", name: "cta_text", widget: "string"}
+          - label: "Articole recente"
+            name: "articole_recente"
+            widget: "object"
+            fields:
+              - {label: "Titlu secțiune", name: "titlu", widget: "string"}
+              - {label: "Text buton", name: "cta_text", widget: "string"}
+          - label: "CTA final"
+            name: "cta_final"
+            widget: "object"
+            fields:
+              - {label: "Titlu", name: "titlu", widget: "string"}
+              - {label: "Text", name: "text", widget: "string"}
+              - {label: "Buton contact", name: "btn_contact", widget: "string"}
+              - {label: "Buton comandă", name: "btn_comanda", widget: "string"}
+          - {label: "Conținut", name: "body", widget: "markdown", required: false}
+
+      # Despre
+      - label: "Despre"
+        name: "despre"
+        file: "content/despre.md"
+        fields:
+          - {label: "Titlu", name: "title", widget: "string"}
+          - {label: "Conținut", name: "body", widget: "markdown"}
+
+      # Contact
+      - label: "Contact"
+        name: "contact"
+        file: "content/contact.md"
+        fields:
+          - {label: "Titlu", name: "title", widget: "string"}
+          - {label: "Conținut", name: "body", widget: "markdown"}
+
+      # Politica de confidențialitate
+      - label: "Politica de confidențialitate"
+        name: "privacy"
+        file: "content/politica-de-confidentialitate.md"
+        fields:
+          - {label: "Titlu", name: "title", widget: "string"}
+          - {label: "Conținut", name: "body", widget: "markdown"}
+
+  # Data Files - Menu
+  - name: "settings_menu"
+    label: "Setări - Meniu"
+    files:
+      - label: "Meniu navigare"
+        name: "menu"
+        file: "data/menu.yaml"
+        fields:
+          - label: "Elemente meniu"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Etichetă", name: "label", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+              - {label: "Ordine", name: "order", widget: "number", value_type: "int", min: 1}
+
+  # Data Files - Footer
+  - name: "settings_footer"
+    label: "Setări - Footer"
+    files:
+      - label: "Footer"
+        name: "footer"
+        file: "data/footer.yaml"
+        fields:
+          - {label: "Text copyright", name: "copyright", widget: "string", required: false}
+          - label: "Link-uri footer"
+            name: "links"
+            widget: "list"
+            required: false
+            fields:
+              - {label: "Text", name: "text", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+          - label: "Social media"
+            name: "social"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "Facebook", name: "facebook", widget: "string", required: false}
+              - {label: "Instagram", name: "instagram", widget: "string", required: false}
+
+  # Data Files - Site
+  - name: "settings_site"
+    label: "Setări - Site"
+    files:
+      - label: "Informații site"
+        name: "site"
+        file: "data/site.yaml"
+        fields:
+          - {label: "Titlu site", name: "title", widget: "string"}
+          - {label: "Descriere", name: "description", widget: "text"}
+          - {label: "Cuvinte cheie (SEO)", name: "keywords", widget: "string"}
+          - {label: "Logo", name: "logo", widget: "image", required: false}
+          - {label: "CTA principal", name: "cta_primary", widget: "string", required: false}
+          - {label: "CTA secundar", name: "cta_secondary", widget: "string", required: false}
