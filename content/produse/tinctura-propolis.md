@@ -1,6 +1,6 @@
 ---
 title: "Tinctură de Propolis"
-date: 2025-02-15T10:00:00+02:00
+date: 2025-01-07T10:00:00+02:00
 pret: 10.0
 unitate: "10 ml"
 disponibilitate: "Disponibil"

@@ -29,7 +29,7 @@
   <div class="container">
     <h2 style="text-align: center; margin-bottom: var(--space-xl);">{{ .titlu }}</h2>
     <div class="layout-cards" style="margin-bottom: var(--space-xl);">
-      {{ range first 4 (where $.Site.RegularPages "Section" "produse") }}
+      {{ range first 4 ((where $.Site.RegularPages "Section" "produse").ByDate) }}
         <div class="card">
           <h3>{{ .Title }}</h3>
           <p style="color: var(--color-honey-gold); font-weight: 700; font-size: 1.25rem;">{{ .Params.pret }} RON/{{ .Params.unitate }}</p>

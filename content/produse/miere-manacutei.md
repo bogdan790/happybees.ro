@@ -1,6 +1,6 @@
 ---
 title: "Miere de Mană cu Tei"
-date: 2025-01-25T10:00:00+02:00
+date: 2025-01-03T10:00:00+02:00
 pret: 60.0
 unitate: "kg"
 disponibilitate: "Disponibil"

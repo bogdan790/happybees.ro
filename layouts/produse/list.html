@@ -7,7 +7,7 @@
     <p style="font-size: 1.125rem; margin-bottom: var(--space-xl);">Miere naturală, polen, propolis, ceară</p>
 
     <div class="layout-cards">
-      {{ range .Pages }}
+      {{ range .Pages.ByDate }}
         <div class="card">
           <h3>{{ .Title }}</h3>
 

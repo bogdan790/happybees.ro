@@ -1,6 +1,6 @@
 ---
 title: "Miere de Rapiță – Brătășanca de Mai"
-date: 2025-01-20T10:00:00+02:00
+date: 2025-01-01T10:00:00+02:00
 pret: 40.0
 unitate: "kg"
 disponibilitate: "Disponibil"

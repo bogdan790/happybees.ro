@@ -1,6 +1,6 @@
 ---
 title: "Miere de Floarea-Soarelui"
-date: 2025-02-01T10:00:00+02:00
+date: 2025-01-04T10:00:00+02:00
 pret: 40.0
 unitate: "kg"
 disponibilitate: "Disponibil"

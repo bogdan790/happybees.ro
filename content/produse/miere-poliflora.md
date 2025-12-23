@@ -1,6 +1,6 @@
 ---
 title: "Miere Polifloră"
-date: 2025-01-10T10:00:00+02:00
+date: 2025-01-05T10:00:00+02:00
 pret: 40.0
 unitate: "kg"
 disponibilitate: "Disponibil"

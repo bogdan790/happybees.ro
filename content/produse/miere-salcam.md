@@ -1,6 +1,6 @@
 ---
 title: "Miere de Salcâm"
-date: 2025-01-15T10:00:00+02:00
+date: 2025-01-02T10:00:00+02:00
 pret: 60.0
 unitate: "kg"
 disponibilitate: "Indisponibil"

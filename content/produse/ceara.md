@@ -1,6 +1,6 @@
 ---
 title: "Ceară de Albine"
-date: 2025-02-20T10:00:00+02:00
+date: 2025-01-08T10:00:00+02:00
 pret: 60.0
 unitate: "kg"
 disponibilitate: "Disponibil"
