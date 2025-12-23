@@ -3,6 +3,8 @@ backend:
   name: github
   repo: bogdan790/happybees.ro
   branch: main
+  base_url: https://auth.happybees.ro
+  auth_endpoint: auth
 
 # Publish mode
 publish_mode: simple
