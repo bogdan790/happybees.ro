@@ -24,14 +24,31 @@
 
     {{ if .Params.caracteristici }}
     <h3>Caracteristici:</h3>
-    <ul style="list-style: none; padding: 0;">
+    <ul>
       {{ range .Params.caracteristici }}
-      <li style="padding: var(--space-xs) 0;">• {{ .item }}</li>
+      <li>{{ .item }}</li>
       {{ end }}
     </ul>
     {{ end }}
 
     <a href="/contact/" class="btn-primary" style="display: inline-block; margin-top: var(--space-xl);">Comandă acum</a>
+
+    {{/* Navigare produse */}}
+    <nav style="display: flex; justify-content: space-between; padding-top: var(--space-xl); margin-top: var(--space-xl); border-top: 1px solid var(--color-cream-dark);">
+      {{ with .PrevInSection }}
+      <a href="{{ .RelPermalink }}" style="color: var(--color-honey-gold);">← {{ .Title }}</a>
+      {{ else }}
+      <span></span>
+      {{ end }}
+
+      <a href="/produse/" style="color: var(--color-gray-medium);">Înapoi la produse</a>
+
+      {{ with .NextInSection }}
+      <a href="{{ .RelPermalink }}" style="color: var(--color-honey-gold);">{{ .Title }} →</a>
+      {{ else }}
+      <span></span>
+      {{ end }}
+    </nav>
 
   </div>
 </section>

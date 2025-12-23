@@ -84,6 +84,43 @@ p {
   margin-bottom: var(--space-md);
 }
 
+/* Lists - Global Styling */
+ul, ol {
+  margin-bottom: var(--space-md);
+  padding-left: 1.5rem;
+  list-style-position: outside;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  margin-bottom: var(--space-xs);
+  line-height: 1.7;
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+/* Nested lists */
+ul ul, ol ul {
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-xs);
+  padding-left: 1.25rem;
+}
+
+ul ol, ol ol {
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-xs);
+  padding-left: 1.25rem;
+}
+
 a {
   color: var(--color-honey-gold);
   text-decoration: none;
@@ -334,6 +371,20 @@ main {
 .back-link:hover {
   background-color: var(--color-honey-light);
   transform: translateX(-4px);
+}
+
+/* Page Navigation (Prev/Next) */
+nav[style*="justify-content: space-between"] {
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+nav[style*="justify-content: space-between"] a {
+  transition: all 0.3s ease;
+}
+
+nav[style*="justify-content: space-between"] a:hover {
+  transform: translateX(2px);
 }
 
 /* ========================================
@@ -639,6 +690,26 @@ main {
   .contact-form button[type="submit"] {
     min-height: 48px;
     font-size: 1.1rem;
+  }
+
+  /* PAGE NAVIGATION - MOBILE */
+  nav[style*="justify-content: space-between"] {
+    font-size: 0.9rem;
+  }
+
+  nav[style*="justify-content: space-between"] a {
+    max-width: 45%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  nav[style*="justify-content: space-between"] a:nth-child(2) {
+    max-width: 100%;
+    text-align: center;
+    flex-basis: 100%;
+    order: 3;
+    margin-top: var(--space-sm);
   }
 }
 
