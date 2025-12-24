@@ -1,6 +1,6 @@
 # Decap CMS Configuration - Happy Bees
 backend:
-  name: github
+  name: git-gateway
   repo: bogdan790/happybees.ro
   branch: main
   base_url: https://auth.happybees.ro
