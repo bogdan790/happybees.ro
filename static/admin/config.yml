@@ -3,8 +3,11 @@ backend:
   name: github
   repo: bogdan790/happybees.ro
   branch: main
-  base_url: https://auth.happybees.ro
+  base_url: https://happybees-auth.pavel-bogdann.workers.dev
   auth_endpoint: auth
+
+# Local development (comentat pentru producție)
+# local_backend: true
 
 site_url: https://happybees.ro
 display_url: https://happybees.ro
