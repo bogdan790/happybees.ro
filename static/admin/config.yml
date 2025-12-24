@@ -3,7 +3,9 @@ backend:
   name: github
   repo: bogdan790/happybees.ro
   branch: main
- 
+  base_url: https://auth.happybees.ro
+  auth_endpoint: auth
+
 site_url: https://happybees.ro
 display_url: https://happybees.ro
 
