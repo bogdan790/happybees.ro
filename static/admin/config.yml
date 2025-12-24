@@ -6,6 +6,9 @@ backend:
   base_url: https://auth.happybees.ro
   auth_endpoint: auth
 
+site_url: https://happybees.ro
+display_url: https://happybees.ro
+
 # Publish mode
 publish_mode: simple
 
