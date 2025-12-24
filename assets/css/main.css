@@ -431,16 +431,6 @@ nav[style*="justify-content: space-between"] a:hover {
   transform: translateY(-4px);
 }
 
-/* Cards in grid layouts - align buttons to bottom */
-.layout-cards .card {
-  display: grid;
-  grid-template-rows: auto auto auto 1fr auto;
-}
-
-.layout-cards .card .btn-primary {
-  justify-self: start;
-}
-
 /* ========================================
    HAMBURGER MENU
    ======================================== */
@@ -767,4 +757,24 @@ nav[style*="justify-content: space-between"] a:hover {
   :root {
     --container-max: 1400px;
   }
+}
+
+/* =========================================================
+   FIX BUTOANE CARDURI PRODUSE – DOAR DESKTOP
+   ========================================================= */
+
+@media (min-width: 1024px) {
+
+  /* carduri produse (homepage + pagina produse) */
+  .layout-cards .card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* butonul Detalii rămâne jos */
+  .layout-cards .card .btn-primary {
+    margin-top: auto !important;
+    align-self: flex-start;
+  }
+
 }
