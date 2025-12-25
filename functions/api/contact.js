@@ -47,7 +47,7 @@ export async function onRequestPost(context) {
 
     // Send email using Resend API
     const { data, error } = await resend.emails.send({
-      from: env.EMAIL_FROM || 'noreply@happybees.ro',
+      from: env.EMAIL_FROM || 'site@happybees.ro',
       to: env.EMAIL_TO || 'bogdan.pavel@happybees.ro',
       replyTo: email,
       subject: `Contact Happy Bees: ${name}`,

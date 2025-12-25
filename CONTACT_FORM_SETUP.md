@@ -1,8 +1,8 @@
-# Contact Form - Environment Variables Setup
+# Contact Form - Resend API Setup
 
-## 📧 SMTP Configuration pentru Cloudflare Pages
+## 📧 Configurare formular de contact pentru Cloudflare Pages
 
-Pentru ca formularul de contact să funcționeze, trebuie să configurezi SMTP credentials în **Cloudflare Pages Dashboard**.
+Formularul de contact folosește **Resend API** pentru trimiterea emailurilor (compatibil cu Cloudflare Workers).
 
 ---
 
@@ -14,28 +14,68 @@ Adaugă următoarele variabile (click **"Add variable"** pentru fiecare):
 
 ### Production Environment:
 
-| Variable Name | Description | Example Value |
-|--------------|-------------|---------------|
-| `SMTP_HOST` | SMTP server hostname | `mail.happybees.ro` sau `smtp.gmail.com` |
-| `SMTP_PORT` | SMTP port | `587` (TLS) sau `465` (SSL) sau `25` |
-| `SMTP_USER` | SMTP username (email complet) | `contact@happybees.ro` |
-| `SMTP_PASS` | SMTP password | `parola-ta-smtp` |
-| `SMTP_FROM` | Email sender (From address) | `contact@happybees.ro` |
-| `SMTP_TO` | Email recipient (unde ajung mesajele) | `bogdan@happybees.ro` |
+| Variable Name | Description | Valoare Recomandată |
+|--------------|-------------|---------------------|
+| `RESEND_API_KEY` | API Key de la resend.com | **(din Resend Dashboard)** |
+| `EMAIL_FROM` | Expeditor (trebuie verificat în Resend) | `site@happybees.ro` |
+| `EMAIL_TO` | Destinatar (unde ajung mesajele) | `bogdan.pavel@happybees.ro` |
 
 ---
 
-## 📋 Pași de configurare în Cloudflare Dashboard:
+## 📋 Pași de configurare:
+
+### 1. Configurare Resend.com
+
+1. **Accesează:** https://resend.com/domains
+2. **Add Domain:** `happybees.ro`
+3. **Configurează DNS records** (SPF, DKIM, DMARC):
+   - Resend îți va afișa recordurile DNS exacte
+   - Adaugă aceste recorduri în Cloudflare DNS
+   - Așteaptă verificarea domeniului (câteva minute)
+4. **Obține API Key:**
+   - Dashboard → API Keys → Create API Key
+   - Copiază API key-ul (apare o singură dată!)
+
+### 2. Configurare Cloudflare Pages
 
 1. **Accesează:** https://dash.cloudflare.com
 2. **Navighează:** Pages → **happybees-ro** → **Settings**
 3. **Click:** Environment Variables (în sidebar)
 4. **Add variable** pentru **Production**:
-   - Variable name: `SMTP_HOST`
-   - Value: (completează cu server-ul tău SMTP)
+   - Variable name: `RESEND_API_KEY`
+   - Value: (paste API key de la Resend)
    - Click **Save**
-5. **Repetă** pentru toate cele 6 variabile de mai sus
-6. **Redeploy:** Deployments → Click pe ultimul deployment → **Retry deployment**
+5. **Add variable** pentru **Production**:
+   - Variable name: `EMAIL_FROM`
+   - Value: `site@happybees.ro`
+   - Click **Save**
+6. **Add variable** pentru **Production**:
+   - Variable name: `EMAIL_TO`
+   - Value: `bogdan.pavel@happybees.ro`
+   - Click **Save**
+7. **Redeploy:** Deployments → Click pe ultimul deployment → **Retry deployment**
+
+---
+
+## 📨 Cum funcționează schema:
+
+```
+Utilizator completează formularul (nume, email, mesaj)
+         ↓
+   Frontend trimite la /api/contact
+         ↓
+   Cloudflare Function (functions/api/contact.js)
+         ↓
+   Resend API trimite email
+         ↓
+FROM: site@happybees.ro ━━━━━━━━━━━━━━→ TO: bogdan.pavel@happybees.ro
+REPLY-TO: emailul utilizatorului (pentru răspuns direct)
+```
+
+**Avantaje:**
+- Email profesional (site@happybees.ro)
+- Când răspunzi la email, merge direct la utilizator (reply-to)
+- Toate mesajele ajung la bogdan.pavel@happybees.ro
 
 ---
 
@@ -44,15 +84,17 @@ Adaugă următoarele variabile (click **"Add variable"** pentru fiecare):
 1. **Accesează:** https://happybees-ro.pages.dev/contact/
 2. **Completează formularul** cu date de test
 3. **Trimite mesaj**
-4. **Verifică** inbox-ul la adresa setată în `SMTP_TO`
+4. **Verifică** inbox-ul la `bogdan.pavel@happybees.ro`
+5. **Verifică** că poți răspunde direct utilizatorului (reply-to)
 
 ---
 
 ## ⚠️ IMPORTANT:
 
-- **NU pune credentials în cod** - doar în Environment Variables!
-- **Production Environment** = pentru live site
+- **NU pune API keys în cod** - doar în Environment Variables!
+- **Production Environment** = pentru live site (happybees-ro.pages.dev)
 - Poți adăuga și **Preview Environment** pentru test branches (opțional)
+- **Domeniul happybees.ro trebuie verificat în Resend** înainte de trimitere
 
 ---
 
@@ -63,15 +105,27 @@ Dacă formularul nu trimite email:
 1. **Verifică Console browser** (F12) pentru erori JavaScript
 2. **Verifică Cloudflare Functions logs:**
    - Dashboard → Pages → happybees-ro → **Functions** tab → **Logs**
-3. **Verifică Environment Variables** sunt setate corect
-4. **Test SMTP credentials** separat (cu un client email)
+3. **Verifică Environment Variables** sunt setate corect (toate 3!)
+4. **Verifică domeniul în Resend:**
+   - resend.com/domains → `happybees.ro` trebuie **Verified**
+5. **Verifică Resend logs:**
+   - resend.com/emails → vezi emailurile trimise și eventualele erori
 
 ---
 
-## 📝 Notă despre SMTP Ports:
+## 📝 Diferența față de SMTP:
 
-- **Port 587** = TLS (recomandat, cel mai sigur)
-- **Port 465** = SSL (deprecated dar funcționează)
-- **Port 25** = Plain (nu e recomandat, fără encriptare)
+Resend API este superior pentru Cloudflare Workers:
+- ✅ HTTP-based (nu necesită conexiuni persistente)
+- ✅ Mai rapid și mai fiabil
+- ✅ Logs detaliate în Resend Dashboard
+- ✅ Rate limiting automat
+- ✅ DKIM/SPF configurat automat
 
-Folosește **587** dacă furnizorul tău SMTP îl suportă.
+---
+
+## 🔗 Resurse utile:
+
+- Resend Documentation: https://resend.com/docs
+- Resend Domains: https://resend.com/domains
+- Cloudflare Pages Functions: https://developers.cloudflare.com/pages/functions/
