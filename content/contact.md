@@ -47,7 +47,7 @@ Pentru comenzi, întrebări sau orice nelămurire, nu ezita să ne contactezi!
   </div>
 
   <!-- Cloudflare Turnstile -->
-  <div class="cf-turnstile" data-sitekey="0x4AAAAAACM0m5Uo7zGJCI1Rn59uBeHQOvw" data-callback="onTurnstileSuccess" data-theme="light"></div>
+  <div class="cf-turnstile" data-sitekey="0x4AAAAAACM0m9V4SkT8FMWq" data-callback="onTurnstileSuccess" data-theme="light"></div>
 
   <div id="form-message" class="form-message" style="display: none;"></div>
 
