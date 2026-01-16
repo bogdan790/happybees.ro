@@ -19,6 +19,7 @@ Adaugă următoarele variabile (click **"Add variable"** pentru fiecare):
 | `RESEND_API_KEY` | API Key de la resend.com | **(din Resend Dashboard)** |
 | `EMAIL_FROM` | Expeditor (trebuie verificat în Resend) | `site@happybees.ro` |
 | `EMAIL_TO` | Destinatar (unde ajung mesajele) | `bogdan.pavel@happybees.ro` |
+| `TURNSTILE_SECRET_KEY` | Secret Key pentru Cloudflare Turnstile (anti-spam) | **(din Cloudflare Dashboard)** |
 
 ---
 
@@ -124,8 +125,43 @@ Resend API este superior pentru Cloudflare Workers:
 
 ---
 
+## 🛡️ Protecție Anti-Spam
+
+Formularul include **două niveluri de protecție** împotriva spam-ului:
+
+### 1. Honeypot Field
+- Un câmp ascuns (`website`) care utilizatorii reali nu îl văd
+- Boții îl completează automat
+- Dacă este completat → mesajul este ignorat (fără să alerteze botul)
+- **Nu necesită configurare suplimentară** - funcționează automat
+
+### 2. Cloudflare Turnstile (CAPTCHA invizibil)
+- CAPTCHA smart de la Cloudflare
+- Gratuit și integrat cu Cloudflare Pages
+- Verificare în background (nu deranjează utilizatorii)
+
+#### Configurare Turnstile:
+
+1. **Accesează:** Cloudflare Dashboard → **Turnstile** (în sidebar)
+2. **Add Site:**
+   - Site name: `Happy Bees`
+   - Domain: `happybees.ro` (și `happybees-ro.pages.dev`)
+   - Widget Mode: **Managed** (recomandat) sau **Invisible**
+3. **Copiază cheile:**
+   - **Site Key** → pune în `content/contact.md` (înlocuiește `YOUR_TURNSTILE_SITE_KEY`)
+   - **Secret Key** → pune în Environment Variables ca `TURNSTILE_SECRET_KEY`
+4. **Redeploy** site-ul
+
+#### Verificare funcționare:
+- Formularul va afișa widget-ul Turnstile (poate fi invizibil sau checkbox)
+- Backend-ul validează token-ul cu API-ul Cloudflare
+- Dacă validarea eșuează → mesajul nu este trimis
+
+---
+
 ## 🔗 Resurse utile:
 
 - Resend Documentation: https://resend.com/docs
 - Resend Domains: https://resend.com/domains
 - Cloudflare Pages Functions: https://developers.cloudflare.com/pages/functions/
+- Cloudflare Turnstile: https://developers.cloudflare.com/turnstile/

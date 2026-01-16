@@ -1,9 +1,33 @@
 /**
  * Cloudflare Pages Function - Contact Form Handler
  * Sends email via Resend API (HTTP-based, Cloudflare Workers compatible)
+ * With anti-spam protection: Honeypot + Cloudflare Turnstile
  */
 
 import { Resend } from 'resend';
+
+/**
+ * Verify Cloudflare Turnstile token
+ */
+async function verifyTurnstile(token, secretKey, ip) {
+  const formData = new URLSearchParams();
+  formData.append('secret', secretKey);
+  formData.append('response', token);
+  if (ip) {
+    formData.append('remoteip', ip);
+  }
+
+  const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: formData.toString(),
+  });
+
+  const result = await response.json();
+  return result;
+}
 
 export async function onRequestPost(context) {
   const { request, env } = context;
@@ -11,7 +35,62 @@ export async function onRequestPost(context) {
   try {
     // Parse form data
     const formData = await request.json();
-    const { name, email, phone, message } = formData;
+    const { name, email, phone, message, website, turnstileToken } = formData;
+
+    // ============================================
+    // ANTI-SPAM CHECK 1: Honeypot
+    // If the honeypot field is filled, it's a bot
+    // ============================================
+    if (website && website.trim() !== '') {
+      console.log('Honeypot triggered - spam detected');
+      // Return success to not alert the bot, but don't send email
+      return new Response(
+        JSON.stringify({
+          success: true,
+          message: 'Mesajul a fost trimis cu succes!'
+        }),
+        {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        }
+      );
+    }
+
+    // ============================================
+    // ANTI-SPAM CHECK 2: Cloudflare Turnstile
+    // Verify the Turnstile token if secret key is configured
+    // ============================================
+    if (env.TURNSTILE_SECRET_KEY) {
+      if (!turnstileToken) {
+        return new Response(
+          JSON.stringify({
+            success: false,
+            error: 'Verificarea de securitate lipsește. Vă rugăm reîncărcați pagina.'
+          }),
+          {
+            status: 400,
+            headers: { 'Content-Type': 'application/json' }
+          }
+        );
+      }
+
+      const clientIP = request.headers.get('CF-Connecting-IP') || '';
+      const turnstileResult = await verifyTurnstile(turnstileToken, env.TURNSTILE_SECRET_KEY, clientIP);
+
+      if (!turnstileResult.success) {
+        console.log('Turnstile verification failed:', turnstileResult['error-codes']);
+        return new Response(
+          JSON.stringify({
+            success: false,
+            error: 'Verificarea de securitate a eșuat. Vă rugăm încercați din nou.'
+          }),
+          {
+            status: 400,
+            headers: { 'Content-Type': 'application/json' }
+          }
+        );
+      }
+    }
 
     // Validate required fields
     if (!name || !email || !message) {

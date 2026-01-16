@@ -37,11 +37,23 @@ Pentru comenzi, întrebări sau orice nelămurire, nu ezita să ne contactezi!
     <textarea id="message" name="message" rows="6" required placeholder="Scrie mesajul tău aici..."></textarea>
   </div>
 
+  <!-- Honeypot anti-spam (ascuns pentru utilizatori, vizibil pentru boți) -->
+  <div class="form-group-hp" aria-hidden="true">
+    <label for="website">Website</label>
+    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+  </div>
+
+  <!-- Cloudflare Turnstile -->
+  <div class="cf-turnstile" data-sitekey="0x4AAAAAACM0m5Uo7zGJCI1Rn59uBeHQOvw" data-callback="onTurnstileSuccess" data-theme="light"></div>
+
   <div id="form-message" class="form-message" style="display: none;"></div>
 
   <button type="submit" class="btn btn-primary">Trimite mesaj</button>
 </form>
 </div>
+
+<!-- Cloudflare Turnstile Script -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <div class="privacy-note-wrapper">
 <p class="privacy-note">
@@ -85,6 +97,23 @@ window.addEventListener('resize', repositionPrivacyNote);
 </script>
 
 <style>
+/* Honeypot - ascuns pentru utilizatori, vizibil pentru boți */
+.form-group-hp {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Turnstile widget */
+.cf-turnstile {
+  margin-bottom: 1rem;
+}
+
 .contact-form {
   max-width: 600px;
   margin: 2rem 0;
