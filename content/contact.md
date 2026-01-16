@@ -15,6 +15,9 @@ Pentru comenzi, întrebări sau orice nelămurire, nu ezita să ne contactezi!
 
 ## Formular de contact
 
+<!-- Cloudflare Turnstile Script - trebuie încărcat ÎNAINTE de widget -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 <div class="form-wrapper">
 <form id="contact-form" class="contact-form">
   <div class="form-group">
@@ -51,9 +54,6 @@ Pentru comenzi, întrebări sau orice nelămurire, nu ezita să ne contactezi!
   <button type="submit" class="btn btn-primary">Trimite mesaj</button>
 </form>
 </div>
-
-<!-- Cloudflare Turnstile Script -->
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <div class="privacy-note-wrapper">
 <p class="privacy-note">
