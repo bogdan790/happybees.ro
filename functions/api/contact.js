@@ -34,8 +34,8 @@ function isGibberish(text) {
   // Dacă procentajul de vocale este prea mic (<15%) sau prea mare (>70%), e suspect
   if (vowelRatio < 0.15 || vowelRatio > 0.70) return true;
 
-  // Verifică consoane consecutive (max 4 în română, ex: "strâ")
-  const consonantSequence = /[bcdfghjklmnpqrstvwxyz]{5,}/i;
+  // Verifică consoane consecutive (max 3 permise, 4+ = gibberish)
+  const consonantSequence = /[bcdfghjklmnpqrstvwxyz]{4,}/i;
   if (consonantSequence.test(lowerText)) return true;
 
   // Verifică dacă are cel puțin un cuvânt valid (2+ litere urmate de vocală)
@@ -55,11 +55,23 @@ function isValidName(name) {
 }
 
 /**
- * Validate message - must be at least 10 chars and not gibberish
+ * Validate message - must contain real words (with spaces)
  */
 function isValidMessage(message) {
-  if (!message || message.trim().length < 10) return false;
-  if (isGibberish(message)) return false;
+  if (!message || message.trim().length < 5) return false;
+
+  // Mesajul trebuie să conțină cel puțin un spațiu (cuvinte reale)
+  if (!message.trim().includes(' ')) return false;
+
+  // Verifică fiecare cuvânt pentru gibberish
+  const words = message.trim().split(/\s+/);
+  if (words.length < 2) return false;
+
+  // Verifică cuvintele mai lungi de 4 caractere
+  for (const word of words) {
+    if (word.length > 4 && isGibberish(word)) return false;
+  }
+
   return true;
 }
 
