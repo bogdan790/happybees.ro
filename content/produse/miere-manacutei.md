@@ -1,14 +1,15 @@
 ---
-title: "Miere de Mană cu Tei"
+title: Miere de Mană cu Tei
 date: 2025-01-03T10:00:00+02:00
-pret: 60.0
-unitate: "kg"
-disponibilitate: "Disponibil"
-imagine: "/images/uploads/produs-miere-mana-tei-placeholder.jpg"
+pret: 60
+unitate: kg
+disponibilitate: Indisponibil
+imagine: /images/uploads/produs-miere-mana-tei-placeholder.jpg
 galerie:
-  - imagine: "/images/uploads/miere-mana-tei-gal-1-placeholder.jpg"
-  - imagine: "/images/uploads/miere-mana-tei-gal-2-placeholder.jpg"
-descriere_scurta: "Miere închisă la culoare, intens aromată, obținută din mană și tei. Recoltă de început de vară, cu caracter variabil în funcție de an."
+  - imagine: /images/uploads/miere-mana-tei-gal-1-placeholder.jpg
+  - imagine: /images/uploads/miere-mana-tei-gal-2-placeholder.jpg
+descriere_scurta: Miere închisă la culoare, intens aromată, obținută din mană și
+  tei. Recoltă de început de vară, cu caracter variabil în funcție de an.
 caracteristici:
   - item: "Culoare: brun-închis până la chihlimbar închis"
   - item: "Gust: intens, ușor caramelizat, cu note florale de tei"
