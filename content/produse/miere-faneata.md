@@ -1,14 +1,15 @@
 ---
-title: "Miere de Fâneață"
+title: Miere de Fâneață
 date: 2025-01-06T10:00:00+02:00
-pret: 50.0
-unitate: "kg"
-disponibilitate: "Disponibilitate limitată"
-imagine: "/images/uploads/produs-miere-faneata-placeholder.jpg"
+pret: 50
+unitate: kg
+disponibilitate: Indisponibil
+imagine: /images/uploads/produs-miere-faneata-placeholder.jpg
 galerie:
-  - imagine: "/images/uploads/miere-faneata-gal-1-placeholder.jpg"
-  - imagine: "/images/uploads/miere-faneata-gal-2-placeholder.jpg"
-descriere_scurta: "Miere rară de vară, obținută din flora diversă a fânețelor naturale. Aromă complexă, recoltă dependentă de condițiile climatice."
+  - imagine: /images/uploads/miere-faneata-gal-1-placeholder.jpg
+  - imagine: /images/uploads/miere-faneata-gal-2-placeholder.jpg
+descriere_scurta: Miere rară de vară, obținută din flora diversă a fânețelor
+  naturale. Aromă complexă, recoltă dependentă de condițiile climatice.
 caracteristici:
   - item: "Culoare: galben-auriu până la chihlimbar deschis"
   - item: "Gust: complex, floral, echilibrat"
