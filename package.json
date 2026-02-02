@@ -5,8 +5,5 @@
   "type": "module",
   "scripts": {
     "build": "hugo --minify"
-  },
-  "dependencies": {
-    "resend": "^6.6.0"
   }
 }

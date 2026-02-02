@@ -4,7 +4,7 @@
  * With anti-spam protection: Honeypot + Cloudflare Turnstile + Gibberish Detection
  */
 
-import { Resend } from 'resend';
+// Resend API via fetch - no npm packages needed
 
 /**
  * Detect gibberish/random text
@@ -224,17 +224,8 @@ export async function onRequestPost(context) {
       );
     }
 
-    // Initialize Resend client with API key from environment
-    const resend = new Resend(env.RESEND_API_KEY);
-
-    // Send email using Resend API
-    const { data, error } = await resend.emails.send({
-      from: env.EMAIL_FROM || 'site@happybees.ro',
-      to: env.EMAIL_TO || 'bogdan.pavel@happybees.ro',
-      replyTo: email,
-      subject: `Contact Happy Bees: ${name}`,
-      html: `
-<!DOCTYPE html>
+    // Build email HTML
+    const emailHtml = `<!DOCTYPE html>
 <html>
 <head>
   <style>
@@ -267,13 +258,28 @@ export async function onRequestPost(context) {
     </div>
   </div>
 </body>
-</html>
-      `,
+</html>`;
+
+    // Send email using Resend API directly via fetch
+    const resendResponse = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: env.EMAIL_FROM || 'site@happybees.ro',
+        to: env.EMAIL_TO || 'bogdan.pavel@happybees.ro',
+        reply_to: email,
+        subject: `Contact Happy Bees: ${name}`,
+        html: emailHtml,
+      }),
     });
 
-    // Check for errors from Resend API
-    if (error) {
-      console.error('Resend API error:', error);
+    const resendResult = await resendResponse.json();
+
+    if (!resendResponse.ok) {
+      console.error('Resend API error:', resendResult);
       return new Response(
         JSON.stringify({
           success: false,
@@ -291,7 +297,7 @@ export async function onRequestPost(context) {
       JSON.stringify({
         success: true,
         message: 'Mesajul a fost trimis cu succes! Vă vom contacta în curând.',
-        emailId: data?.id
+        emailId: resendResult?.id
       }),
       {
         status: 200,
