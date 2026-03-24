@@ -11,7 +11,7 @@
 
 **Requirements covered:** STRUCT-01, STRUCT-02, STRUCT-03
 
-**Plans:** 1 plan
+**Plans:** 1/0 plans complete
 
 Plans:
 - [x] 01-PLAN-continut-stiati-ca.md — Creare _index.md secțiune și articol hidromel cu front matter complet
@@ -86,7 +86,7 @@ Plans:
 
 | Phase | Name | Status | Requirements |
 |-------|------|--------|--------------|
-| 1 | Structură conținut Hugo | ✓ Complete | STRUCT-01, 02, 03 |
+| 1 | Structură conținut Hugo | Complete    | 2026-03-24 |
 | 2 | Template-uri și navigație | ○ Pending | TMPL-01, 02, 03, NAV-01, 02 |
 | 3 | Integrare CMS Decap | ○ Pending | CMS-01, 02, 03 |
 | 4 | Preview homepage | ○ Pending | HOME-01, 02 |
