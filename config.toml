@@ -50,6 +50,11 @@ defaultContentLanguageInSubdir = false  # NU adaugă /ro/ la URL-uri
   weight = 3
 
 [[menu.main]]
+  name = "Știați că?"
+  url = "/stiati-ca/"
+  weight = 3.5
+
+[[menu.main]]
   name = "Despre"
   url = "/despre/"
   weight = 4
