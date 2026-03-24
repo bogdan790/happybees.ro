@@ -19,8 +19,8 @@
 
 ### Navigație
 
-- [ ] **NAV-01**: Buton nou „Știați că?" adăugat în `config.toml` în `[[menu.main]]` (weight 3.5 → reordonat)
-- [ ] **NAV-02**: Link activ (`active` class) funcționează corect pentru secțiunea `/stiati-ca/`
+- [x] **NAV-01**: Buton nou „Știați că?" adăugat în `config.toml` în `[[menu.main]]` (weight 3.5 → reordonat)
+- [x] **NAV-02**: Link activ (`active` class) funcționează corect pentru secțiunea `/stiati-ca/`
 
 ### CMS Decap
 
@@ -60,8 +60,8 @@
 | TMPL-01 | Phase 2 | Pending |
 | TMPL-02 | Phase 2 | Pending |
 | TMPL-03 | Phase 2 | Pending |
-| NAV-01 | Phase 2 | Pending |
-| NAV-02 | Phase 2 | Pending |
+| NAV-01 | Phase 2 | Complete |
+| NAV-02 | Phase 2 | Complete |
 | CMS-01 | Phase 3 | Pending |
 | CMS-02 | Phase 3 | Pending |
 | CMS-03 | Phase 3 | Pending |

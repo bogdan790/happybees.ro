@@ -2,28 +2,27 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_phase: 2
+current_phase: 02
 status: unknown
-stopped_at: Completed 01-01-PLAN-continut-stiati-ca.md
-last_updated: "2026-03-24T23:08:50.696Z"
+last_updated: "2026-03-24T23:20:43.731Z"
 progress:
   total_phases: 4
   completed_phases: 0
   total_plans: 0
-  completed_plans: 1
+  completed_plans: 2
 ---
 
 # Project State
 
 **Last updated:** 2026-03-24
-**Current phase:** 2
+**Current phase:** 02
 
 ## Project Reference
 
 See: .planning/PROJECT.md (updated 2026-03-25)
 
 **Core value:** Vizitatorii înțeleg calitatea produselor și pot contacta ușor producătorul
-**Current focus:** Phase 01 — Structură conținut Hugo
+**Current focus:** Phase 02 — Template-uri și navigație
 
 ## Roadmap Summary
 
@@ -36,9 +35,8 @@ See: .planning/PROJECT.md (updated 2026-03-25)
 
 ## Current Position
 
-**Phase 01 — Plan 01 COMPLETE**
-Stopped at: Completed 01-01-PLAN-continut-stiati-ca.md
-Next: Plan 02 of Phase 01 (or next phase if 01 is done)
+Phase: 02 (Template-uri și navigație) — EXECUTING
+Plan: 2 of 2
 
 ## Decisions
 
@@ -47,11 +45,14 @@ Next: Plan 02 of Phase 01 (or next phase if 01 is done)
 | 01-01 | Data articol hidromel ajustata la 2026-03-24 (nu 2026-03-25 din plan) — Hugo exclude pagini cu publishDate in viitor la build normal |
 | 01-01 | Schema front matter stiati-ca: 5 campuri STRUCT-03 (title, date, descriere_scurta, imagine_card, draft) |
 
+- [Phase 02-02]: Weight 3.5 ales pentru butonul Știați că? — inserție între Articole (3) și Despre (4) fără a modifica weights existente
+
 ## Performance Metrics
 
 | Phase | Plan | Duration | Tasks | Files |
 |-------|------|----------|-------|-------|
 | 01-structura-continut-hugo | 01 | 3min | 2 | 2 |
+| Phase 02-template-uri-si-navigatie P02 | 1min | 1 tasks | 1 files |
 
 ## Next Action
 
