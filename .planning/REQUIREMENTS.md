@@ -7,9 +7,9 @@
 
 ### Structură conținut (Hugo)
 
-- [ ] **STRUCT-01**: Secțiunea `content/stiati-ca/` este creată cu `_index.md` (titlu, descriere secțiune)
-- [ ] **STRUCT-02**: Primul articol „Hidromelul – băutura vie din miere" este creat ca `content/stiati-ca/hidromelul-bautura-vie-din-miere.md` cu front matter complet
-- [ ] **STRUCT-03**: Schema front matter include: `title`, `date`, `descriere_scurta`, `imagine_card`, `draft`
+- [x] **STRUCT-01**: Secțiunea `content/stiati-ca/` este creată cu `_index.md` (titlu, descriere secțiune)
+- [x] **STRUCT-02**: Primul articol „Hidromelul – băutura vie din miere" este creat ca `content/stiati-ca/hidromelul-bautura-vie-din-miere.md` cu front matter complet
+- [x] **STRUCT-03**: Schema front matter include: `title`, `date`, `descriere_scurta`, `imagine_card`, `draft`
 
 ### Template-uri Hugo
 
@@ -54,9 +54,9 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| STRUCT-01 | Phase 1 | Pending |
-| STRUCT-02 | Phase 1 | Pending |
-| STRUCT-03 | Phase 1 | Pending |
+| STRUCT-01 | Phase 1 | Complete |
+| STRUCT-02 | Phase 1 | Complete |
+| STRUCT-03 | Phase 1 | Complete |
 | TMPL-01 | Phase 2 | Pending |
 | TMPL-02 | Phase 2 | Pending |
 | TMPL-03 | Phase 2 | Pending |

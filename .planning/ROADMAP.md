@@ -14,7 +14,7 @@
 **Plans:** 1 plan
 
 Plans:
-- [ ] 01-PLAN-continut-stiati-ca.md — Creare _index.md secțiune și articol hidromel cu front matter complet
+- [x] 01-PLAN-continut-stiati-ca.md — Creare _index.md secțiune și articol hidromel cu front matter complet
 
 **Deliverables:**
 - `content/stiati-ca/_index.md` — index secțiune cu titlu și descriere
@@ -86,12 +86,12 @@ Plans:
 
 | Phase | Name | Status | Requirements |
 |-------|------|--------|--------------|
-| 1 | Structură conținut Hugo | ○ Pending | STRUCT-01, 02, 03 |
+| 1 | Structură conținut Hugo | ✓ Complete | STRUCT-01, 02, 03 |
 | 2 | Template-uri și navigație | ○ Pending | TMPL-01, 02, 03, NAV-01, 02 |
 | 3 | Integrare CMS Decap | ○ Pending | CMS-01, 02, 03 |
 | 4 | Preview homepage | ○ Pending | HOME-01, 02 |
 
-**Progress:** ░░░░░░░░░░ 0%
+**Progress:** [██░░░░░░░░] 25%
 
 ---
 *Roadmap created: 2026-03-25*
