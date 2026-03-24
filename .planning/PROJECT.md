@@ -12,6 +12,7 @@ Vizitatorii înțeleg calitatea produselor și pot contacta ușor producătorul 
 
 ### Validated
 
+- ✓ Secțiunea "Știați că?" creată cu primul articol (hidromel) — Phase 1
 - ✓ Site static generat cu Hugo — existing
 - ✓ Hosting pe Cloudflare Pages cu deploy automat la push — existing
 - ✓ Catalog produse (8 produse apicole) cu pagini individuale — existing
@@ -23,8 +24,8 @@ Vizitatorii înțeleg calitatea produselor și pot contacta ușor producătorul 
 
 ### Active
 
-- [ ] Secțiune nouă "Știați că?..." — articole scurte de tip trivia/informare despre albine și miere
 - [ ] Buton de navigare nou în header pentru secțiunea "Știați că?..."
+- [ ] Template-uri Hugo pentru secțiunea "Știați că?" (list + single), consistente cu tema
 - [ ] Integrare secțiunii în CMS Decap pentru editare conținut fără cod
 - [ ] Design consistent cu tema existentă a site-ului (culori, butoane, layout)
 
@@ -85,4 +86,4 @@ Acest document evoluează la tranziții de fază și limite de milestone.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-25 after initialization*
+*Last updated: 2026-03-25 after Phase 1 completion*
