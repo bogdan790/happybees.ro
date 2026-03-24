@@ -1,0 +1,30 @@
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section style="padding: var(--space-2xl) 0;">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    <p style="font-size: 1.125rem; margin-bottom: var(--space-xl);">Curiozități despre miere, albine și apicultură — lucruri simple pe care merită să le știi.</p>
+
+    <div style="display: flex; flex-direction: column; gap: var(--space-xl);">
+      {{ range .Pages.ByDate.Reverse }}
+        <article class="card">
+          <div>
+            <h2 style="margin-bottom: var(--space-sm);">
+              <a href="{{ .RelPermalink }}" style="color: var(--color-gray-dark);">{{ .Title }}</a>
+            </h2>
+
+            <p style="font-size: 0.875rem; color: var(--color-gray-medium); margin-bottom: var(--space-sm);">
+              {{ .Date.Format "2 January 2006" }}
+            </p>
+
+            <p style="margin-bottom: var(--space-md);">{{ .Params.descriere_scurta }}</p>
+
+            <a href="{{ .RelPermalink }}" style="color: var(--color-honey-gold); font-weight: 600;">Citește articolul →</a>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
