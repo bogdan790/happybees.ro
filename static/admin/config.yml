@@ -70,6 +70,21 @@ collections:
       - {label: "Rezumat", name: "rezumat", widget: "text"}
       - {label: "Conținut", name: "body", widget: "markdown"}
 
+  # Știați că?
+  - name: "stiati-ca"
+    label: "Știați că?"
+    label_singular: "Articol Știați că?"
+    folder: "content/stiati-ca"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Titlu", name: "title", widget: "string"}
+      - {label: "Dată publicare", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ", date_format: "DD.MM.YYYY", time_format: "HH:mm"}
+      - {label: "Descriere scurtă", name: "descriere_scurta", widget: "text", hint: "Apare pe cardul din listing"}
+      - {label: "Imagine card", name: "imagine_card", widget: "image", required: false, hint: "Opțional — imagine afișată pe card"}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false, label_singular: "Draft (nepublicat)"}
+      - {label: "Conținut", name: "body", widget: "markdown"}
+
   # Pagini
   - name: "pages"
     label: "Pagini"
