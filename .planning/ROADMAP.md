@@ -11,6 +11,11 @@
 
 **Requirements covered:** STRUCT-01, STRUCT-02, STRUCT-03
 
+**Plans:** 1 plan
+
+Plans:
+- [ ] 01-PLAN-continut-stiati-ca.md — Creare _index.md secțiune și articol hidromel cu front matter complet
+
 **Deliverables:**
 - `content/stiati-ca/_index.md` — index secțiune cu titlu și descriere
 - `content/stiati-ca/hidromelul-bautura-vie-din-miere.md` — primul articol complet
@@ -90,4 +95,4 @@
 
 ---
 *Roadmap created: 2026-03-25*
-*Last updated: 2026-03-25 after initial creation*
+*Last updated: 2026-03-25 after phase 1 planned*
