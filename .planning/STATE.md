@@ -4,7 +4,7 @@ milestone: v1.0
 milestone_name: milestone
 current_phase: 02
 status: unknown
-last_updated: "2026-03-24T23:22:05.810Z"
+last_updated: "2026-03-24T23:31:51.958Z"
 progress:
   total_phases: 4
   completed_phases: 0
@@ -49,6 +49,7 @@ Plan: 2 of 2
 - [Phase 02-01]: Descrierea sectiunii hardcodata in list.html (nu .Description) — _index.md nu are camp description explicit
 - [Phase 02-01]: Sortare .ByDate.Reverse pentru stiati-ca (articolele noi apar primele, vs .ByWeight in articole)
 - [Phase 02-01]: Campul .Params.categorie omis din templates stiati-ca — nu exista in schema STRUCT-03
+- [Phase 02-02]: Verificare vizuala aprobata de utilizator — butonul Stiai ca? apare corect in meniu intre Articole si Despre
 
 ## Performance Metrics
 
@@ -57,6 +58,7 @@ Plan: 2 of 2
 | 01-structura-continut-hugo | 01 | 3min | 2 | 2 |
 | Phase 02-template-uri-si-navigatie P02 | 1min | 1 tasks | 1 files |
 | Phase 02-template-uri-si-navigatie P01 | 1min | 3 tasks | 2 files |
+| Phase 02-template-uri-si-navigatie P02 | 2min | 2 tasks | 1 files |
 
 ## Next Action
 

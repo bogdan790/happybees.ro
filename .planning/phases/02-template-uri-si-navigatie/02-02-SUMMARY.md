@@ -44,7 +44,7 @@ completed: 2026-03-24
 - **Duration:** 1 min
 - **Started:** 2026-03-24T23:19:37Z
 - **Completed:** 2026-03-24T23:20:00Z
-- **Tasks:** 1 automated (+ 1 checkpoint human-verify pending)
+- **Tasks:** 2 complete (1 automated + 1 checkpoint human-verify APROBAT)
 - **Files modified:** 1
 
 ## Accomplishments
@@ -75,9 +75,17 @@ None.
 
 None — nu sunt necesare configurări externe.
 
+## Checkpoint Verification
+
+**Task 2: Verificare vizuală nav și clasa active — APROBAT de utilizator (2026-03-25)**
+
+Utilizatorul a confirmat:
+- Butonul „Știați că?" apare corect în meniu între „Articole" și „Despre"
+- Verificare vizuală trecută
+
 ## Next Phase Readiness
-- Verificare vizuală necesară (checkpoint Task 2): `hugo server` și verificare în browser că butonul apare și clasa `active` funcționează
-- După aprobare: Phase 03 (Integrare CMS Decap) poate include secțiunea stiati-ca în colecții
+- Phase 03 (Integrare CMS Decap) poate include secțiunea stiati-ca în colecții
+- Navigația este completă și funcțională
 
 ---
 *Phase: 02-template-uri-si-navigatie*
