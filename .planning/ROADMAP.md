@@ -33,7 +33,7 @@ Plans:
 
 **Requirements covered:** TMPL-01, TMPL-02, TMPL-03, NAV-01, NAV-02
 
-**Plans:** 2 plans
+**Plans:** 2/0 plans complete
 
 Plans:
 - [ ] 02-PLAN-templates.md — Template-uri list.html și single.html pentru secțiunea stiati-ca (TMPL-01, TMPL-02, TMPL-03)
@@ -93,7 +93,7 @@ Plans:
 | Phase | Name | Status | Requirements |
 |-------|------|--------|--------------|
 | 1 | Structură conținut Hugo | Complete    | 2026-03-24 |
-| 2 | Template-uri și navigație | ○ Pending | TMPL-01, 02, 03, NAV-01, 02 |
+| 2 | Template-uri și navigație | Complete    | 2026-03-24 |
 | 3 | Integrare CMS Decap | ○ Pending | CMS-01, 02, 03 |
 | 4 | Preview homepage | ○ Pending | HOME-01, 02 |
 

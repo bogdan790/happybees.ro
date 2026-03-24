@@ -13,9 +13,9 @@
 
 ### Template-uri Hugo
 
-- [ ] **TMPL-01**: `layouts/stiati-ca/list.html` — pagina de listing a tuturor articolelor "Știați că?", vizual consistent cu `layouts/articole/list.html`
-- [ ] **TMPL-02**: `layouts/stiati-ca/single.html` — pagina unui articol individual, vizual consistent cu `layouts/articole/single.html`
-- [ ] **TMPL-03**: Template-urile folosesc exclusiv clasele CSS existente din `assets/css/main.css` (fără stiluri inline noi)
+- [x] **TMPL-01**: `layouts/stiati-ca/list.html` — pagina de listing a tuturor articolelor "Știați că?", vizual consistent cu `layouts/articole/list.html`
+- [x] **TMPL-02**: `layouts/stiati-ca/single.html` — pagina unui articol individual, vizual consistent cu `layouts/articole/single.html`
+- [x] **TMPL-03**: Template-urile folosesc exclusiv clasele CSS existente din `assets/css/main.css` (fără stiluri inline noi)
 
 ### Navigație
 
@@ -57,9 +57,9 @@
 | STRUCT-01 | Phase 1 | Complete |
 | STRUCT-02 | Phase 1 | Complete |
 | STRUCT-03 | Phase 1 | Complete |
-| TMPL-01 | Phase 2 | Pending |
-| TMPL-02 | Phase 2 | Pending |
-| TMPL-03 | Phase 2 | Pending |
+| TMPL-01 | Phase 2 | Complete |
+| TMPL-02 | Phase 2 | Complete |
+| TMPL-03 | Phase 2 | Complete |
 | NAV-01 | Phase 2 | Complete |
 | NAV-02 | Phase 2 | Complete |
 | CMS-01 | Phase 3 | Pending |

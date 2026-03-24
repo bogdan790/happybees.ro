@@ -116,3 +116,12 @@ Niciuna — nu sunt servicii externe configurate in aceasta faza.
 ---
 *Phase: 01-structura-continut-hugo*
 *Completed: 2026-03-24*
+
+## Self-Check: PASSED
+
+- FOUND: content/stiati-ca/_index.md
+- FOUND: content/stiati-ca/hidromelul-bautura-vie-din-miere.md
+- FOUND: .planning/phases/01-structura-continut-hugo/01-01-SUMMARY.md
+- FOUND: commit 2d55376 (Task 1)
+- FOUND: commit ce089b3 (Task 2)
+- FOUND: commit ab29596 (metadata)
