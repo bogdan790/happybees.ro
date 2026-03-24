@@ -95,7 +95,7 @@ Plans:
 | 1 | Structură conținut Hugo | Complete    | 2026-03-24 |
 | 2 | Template-uri și navigație | Complete    | 2026-03-24 |
 | 3 | Integrare CMS Decap | Complete    | 2026-03-24 |
-| 4 | Preview homepage | ○ Pending | HOME-01, 02 |
+| 4 | Preview homepage | Complete    | 2026-03-24 |
 
 **Progress:** [██░░░░░░░░] 25%
 

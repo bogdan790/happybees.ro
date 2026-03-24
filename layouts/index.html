@@ -67,6 +67,28 @@
 </section>
 {{ end }}
 
+{{/* Știați că? Preview */}}
+{{ $stiati := first 1 ((where $.Site.RegularPages "Section" "stiati-ca").ByDate.Reverse) }}
+{{ if $stiati }}
+<section style="padding: var(--space-2xl) 0; background-color: var(--color-cream);">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: var(--space-xl);">Știați că?</h2>
+    <div class="layout-cards" style="max-width: 480px; margin: 0 auto var(--space-xl);">
+      {{ range $stiati }}
+        <div class="card">
+          <h3>{{ .Title }}</h3>
+          <p>{{ .Params.descriere_scurta }}</p>
+          <a href="{{ .RelPermalink }}" style="color: var(--color-honey-gold); font-weight: 600;">Citește →</a>
+        </div>
+      {{ end }}
+    </div>
+    <div style="text-align: center;">
+      <a href="/stiati-ca/" class="btn-primary">Vezi toate</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
 {{/* CTA Final */}}
 {{ with .Params.cta_final }}
 <section style="padding: var(--space-2xl) 0; background-color: var(--color-cream); text-align: center;">
