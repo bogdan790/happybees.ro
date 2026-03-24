@@ -33,6 +33,12 @@ Plans:
 
 **Requirements covered:** TMPL-01, TMPL-02, TMPL-03, NAV-01, NAV-02
 
+**Plans:** 2 plans
+
+Plans:
+- [ ] 02-PLAN-templates.md — Template-uri list.html și single.html pentru secțiunea stiati-ca (TMPL-01, TMPL-02, TMPL-03)
+- [ ] 02-PLAN-navigatie.md — Adăugare intrare meniu [[menu.main]] în config.toml (NAV-01, NAV-02)
+
 **Deliverables:**
 - `layouts/stiati-ca/list.html` — listing consistent cu `articole/list.html`
 - `layouts/stiati-ca/single.html` — articol consistent cu `articole/single.html`
@@ -95,4 +101,4 @@ Plans:
 
 ---
 *Roadmap created: 2026-03-25*
-*Last updated: 2026-03-25 after phase 1 planned*
+*Last updated: 2026-03-25 after phase 2 planned*
