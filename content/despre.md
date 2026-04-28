@@ -10,7 +10,7 @@ poveste:
 
     Primele familii de albine au fost instalate în grădina casei, sub îndrumarea unui apicultor experimentat din zonă. Am învățat pas cu pas: de la primele verificări de primăvară, la recoltarea mierii, până la pregătirea stupilor pentru iarnă.
 
-    Astăzi, stupina noastră numără 20 de familii de albine sănătoase, amplasate în zone cu floră bogată și diversă. Producem miere naturală, nefiltrat\u0103, polen proaspăt și propolis de calitate.
+    Astăzi, stupina noastră numără 20 de familii de albine sănătoase, amplasate în zone cu floră bogată și diversă. Producem miere naturală, nefiltrată, polen proaspăt și propolis de calitate.
 
     Fiecare borcan de miere Happy Bees este rezultatul muncii pasionate, grijii pentru albine și respectului pentru natură. Nu folosim tratamente chimice aggressive, nu hrănim albinele cu zahăr industrial și nu forțăm producția.
 
@@ -18,7 +18,7 @@ poveste:
   imagine_portret: "/images/uploads/portret-bogdan-placeholder.jpg"
 valori:
   - titlu: "Natural"
-    text: "Miere fără aditivi, nefiltrat\u0103, direct din fagure"
+    text: "Miere fără aditivi, nefiltrată, direct din fagure"
   - titlu: "Calitate"
     text: "Grijă pentru fiecare stup, respect pentru albine"
   - titlu: "Familie"
